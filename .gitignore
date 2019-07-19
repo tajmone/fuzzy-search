@@ -1,0 +1,77 @@
+################################################################################
+# A collection of algorithms for fuzzy search like in Sublime Text:            #
+# https://github.com/tajmone/fuzzy-search                                      #
+################################################################################
+
+## ===============
+## Misc Work Files
+## ===============
+
+# Temporary/backup or removed files and folders:
+___*
+___*.*
+
+# Links and URLs
+*.lnk
+*.url
+
+## ============
+## Binary files
+## ============
+
+## Object files
+###############
+*.elf
+*.ko
+*.o
+*.obj
+
+## Static libraries
+###################
+*.a
+*.la
+*.lib
+*.lo
+
+## Shared objects
+#################
+*.dll
+*.dylib
+*.so
+*.so.*
+
+## Executables
+##############
+*.app
+*.exe
+*.out
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+
+## Linux
+########
+*~
+.directory
+.fuse_hidden*
+.nfs*
+.Trash-*
+
+## macOS
+########
+*.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon
+
+## Windows
+##########
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+.BIN/
+
+# EOF #

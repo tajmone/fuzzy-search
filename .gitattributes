@@ -1,0 +1,36 @@
+################################################################################
+# A collection of algorithms for fuzzy search like in Sublime Text:            #
+# https://github.com/tajmone/fuzzy-search                                      #
+################################################################################
+
+* text=auto
+
+## ============
+## Source Files
+## ============
+*.h     text
+*.js    text
+
+## ===================
+## Documentation files
+## ===================
+*.md           text
+*.txt          text
+COPYING        text
+LICENSE        text
+
+## ===================
+## Configuration files
+## ===================
+*.sublime-*    text
+.editorconfig  text
+
+## -------------
+## Git settings:
+## -------------
+.gitattributes text
+.gitconfig     text
+.gitignore     text
+.gitmodules    text eol=crlf
+
+# EOF #
