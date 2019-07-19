@@ -8,6 +8,7 @@
 ## ============
 ## Source Files
 ## ============
+*.cs    text
 *.h     text
 *.js    text
 

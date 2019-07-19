@@ -25,7 +25,11 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
 # Directory Contents
 
 - [`/0.1.0/`](./0.1.0/) — original algorithm based on the 2016 article.
+    + [`/cpp/`][1cpp] — C++ version by [Forrest Smith].
+    + [`/csharp/`][1cs] — C# port by [Collin Dillinger].
+    + [`/js/`][1js] — JavaScript version by [Forrest Smith].
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
+    + [`/cpp/`][2cpp] — C++ version by [Forrest Smith].
 - [`fuzzy_match.md`][fm md] — original fts_fuzzy_match documentation.
 
 
@@ -69,7 +73,7 @@ In February 2017 — i.e. a year after the original article — [Sublime Text] a
 
 Skinner's feedback was a major breakthrough that prompted Forrest to update the __fts_fuzzy_match__ C++ algorithm to v0.2.0, in order to include the "exhaustive search" suggested by Skinner:
 
-- [`./0.2.0/cpp/fts_fuzzy_match.h`][fm1cpp] — C++, v0.2.0, taken from commit [d541eb4][fm2cpp d541eb4], 2017-02-19.
+- [`./0.2.0/cpp/fts_fuzzy_match.h`][fm2cpp] — C++, v0.2.0, taken from commit [d541eb4][fm2cpp d541eb4], 2017-02-19.
 
 It's worth noting that Forrest never updated his JavaScript implementation to v0.2.0, and that many of the third party ports of __fts_fuzzy_match__ to other languages are still based on v0.1.0 of the algorithm.
 
@@ -90,14 +94,18 @@ I've nevertheless decided to include it (_as is_) in this project for completion
 
 Forrest's algorithm has inspired a number of third party ports to other languages.
 
-| language | version |       author       |       link       |    license    |
-|----------|---------|--------------------|------------------|---------------|
-| C#       | 0.1.0   | [Collin Dillinger] | [Gist][fm c#]    | public domain |
-| Elixir   | 0.2.0   | [@WolfDan]         | [Gist][fm ex]    | ???           |
-| F#       | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]  | ???           |
-| Lua      | 0.1.0   | [Blake Mealey]     | [GitHub][fm lua] | public domain |
-| PHP      | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php] | ???           |
-| Python   | 0.1.0   | [Matt Menzenski]   | [Gist][fm py]    | ???           |
+| language | version |       author       |       link       |              source file              |    license    |
+|----------|---------|--------------------|------------------|---------------------------------------|---------------|
+| C#       | 0.1.0   | [Collin Dillinger] | [Gist][fm c#]    | [`0.1.0/csharp/FuzzyMatch.cs`][fm1c#] | public domain |
+| Elixir   | 0.2.0   | [@WolfDan]         | [Gist][fm ex]    |                                       | ???           |
+| F#       | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]  |                                       | ???           |
+| Lua      | 0.1.0   | [Blake Mealey]     | [GitHub][fm lua] |                                       | public domain |
+| PHP      | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php] |                                       | ???           |
+| Python   | 0.1.0   | [Matt Menzenski]   | [Gist][fm py]    |                                       | ???           |
+
+I've started to include in this project the code of the licensed ports, and will ask the original authors for permission to include those ports that don't have a clear or explicit license.
+
+> __NOTE__ — I haven't had a chance to fully test all these ports, so I cannot guarantee for their quality and accuracy. But I've studied their source enough to establish that they are indeed implementation of the algorithm, and not malicious code.
 
 # FTS Fuzzy Match Derivatives
 
@@ -176,10 +184,18 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 
 <!-- project links ----------------------------------------------------------->
 
+<!-- project folders -->
+
+[1cpp]: ./0.1.0/cpp/    "Navigate to C++ algorithm"
+[1cs]:  ./0.1.0/csharp/ "Navigate to C# algorithm"
+[1js]:  ./0.1.0/js/     "Navigate to JavaScript algorithm"
+[2cpp]: ./0.2.0/cpp/    "Navigate to C++ algorithm"
+
 <!-- project files -->
 
 [fm md]: ./fuzzy_match.md "View the original documentation of fts_fuzzy_match"
 [fm1cpp]: ./0.1.0/cpp/fts_fuzzy_match.h
+[fm1c#]: ./0.1.0/csharp/FuzzyMatch.cs
 [fm1js]: ./0.1.0/js/fts_fuzzy_match.js
 [fm2cpp]: ./0.2.0/cpp/fts_fuzzy_match.h
 
