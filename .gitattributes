@@ -11,6 +11,7 @@
 *.cs    text
 *.h     text
 *.js    text
+*.lua   text
 
 ## ===================
 ## Documentation files
