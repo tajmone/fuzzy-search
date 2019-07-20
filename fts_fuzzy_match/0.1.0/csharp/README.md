@@ -3,7 +3,7 @@
 C Sharp implementation of the __[fts_fuzzy_match]__ algorithm, ported by [Collin Dillinger]:
 
 
-- [`FuzzyMatch.cs`](./FuzzyMatch.cs/)
+- [`FuzzyMatch.cs`](./FuzzyMatch.cs)
 
 Taken from his [public GitHub Gist]  (commit [f596e693], 2016-04-15).
 
