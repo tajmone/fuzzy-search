@@ -13,6 +13,7 @@
 *.h     text
 *.js    text
 *.lua   text
+*.php   text
 
 ## ===================
 ## Documentation files

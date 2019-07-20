@@ -29,6 +29,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/csharp/`][1cs] — C# port by [Collin Dillinger].
     + [`/js/`][1js] — JavaScript version by [Forrest Smith].
     + [`/lua/`][1lua] — Lua port by [Blake Mealey].
+    + [`/php/`][1php] — PHP port by [@detectiveYarmas].
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
     + [`/cpp/`][2cpp] — C++ version by [Forrest Smith].
     + [`/elixir/`][2ex] — Elixir port by [@WolfDan].
@@ -102,7 +103,7 @@ Forrest's algorithm has inspired a number of third party ports to other language
 | Elixir   | 0.2.0   | [@WolfDan]         | [Gist][fm ex]    | [`0.2.0/elixir/fts_fuzzy_match.ex`][fm2ex] | MIT           |
 | F#       | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]  |                                            | ???           |
 | Lua      | 0.1.0   | [Blake Mealey]     | [GitHub][fm lua] | [`0.1.0/lua/fts_fuzzy_match.lua`][fm1lua]  | public domain |
-| PHP      | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php] |                                            | ???           |
+| PHP      | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php] | [`0.1.0/php/fts_fuzzy_match.php`][fm1php]  | public domain |
 | Python   | 0.1.0   | [Matt Menzenski]   | [Gist][fm py]    |                                            | ???           |
 
 I've started to include in this project the code of the licensed ports, and will ask the original authors for permission to include those ports that don't have a clear or explicit license.
@@ -192,6 +193,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 [1cs]:  ./0.1.0/csharp/ "Navigate to C# algorithm"
 [1js]:  ./0.1.0/js/     "Navigate to JavaScript algorithm"
 [1lua]: ./0.1.0/lua/    "Navigate to Lua algorithm"
+[1php]: ./0.1.0/php/    "Navigate to PHP algorithm"
 [2cpp]: ./0.2.0/cpp/    "Navigate to C++ algorithm"
 [2ex]: ./0.2.0/elixir/  "Navigate to Elixir algorithm"
 
@@ -202,6 +204,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 [fm1cpp]: ./0.1.0/cpp/fts_fuzzy_match.h
 [fm1js]: ./0.1.0/js/fts_fuzzy_match.js
 [fm1lua]: ./0.1.0/lua/fts_fuzzy_match.lua
+[fm1php]: ./0.1.0/php/fts_fuzzy_match.php
 [fm2cpp]: ./0.2.0/cpp/fts_fuzzy_match.h
 [fm2ex]: ./0.2.0/elixir/fts_fuzzy_match.ex
 
