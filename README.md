@@ -1,5 +1,7 @@
 # Fuzzy Search
 
+- https://github.com/tajmone/fuzzy-search
+
 A collection of algorithms to implement fuzzy search like in [Sublime Text], in various languages; based on [Forrest Smith]'s __[fts_fuzzy_match]__.
 
 Created by [Tristano Ajmone] in July 19, 2019.

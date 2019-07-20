@@ -9,6 +9,7 @@
 ## Source Files
 ## ============
 *.cs    text
+*.ex    text eol=lf
 *.h     text
 *.js    text
 *.lua   text
