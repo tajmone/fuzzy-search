@@ -23,6 +23,7 @@ Created by [Tristano Ajmone] in July 19, 2019.
 
 # Project Contents
 
+- [`/dataset/`](./dataset/) — sample data sets for testing the algorithms.
 - [`/fts_fuzzy_match/`](./fts_fuzzy_match/) — [Forrest Smith]'s fuzzy search algorithm and its ports to various languages:
     + [`/0.1.0/`](./fts_fuzzy_match/0.1.0/) — original algorithm based on the 2016 article.
     + [`/0.2.0/`](./fts_fuzzy_match/0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.

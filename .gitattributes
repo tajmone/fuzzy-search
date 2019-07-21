@@ -37,4 +37,18 @@ LICENSE        text
 .gitignore     text
 .gitmodules    text eol=crlf
 
+## ==========
+## Exceptions
+## ==========
+/dataset/*.txt text eol=lf
+
+# ==============================================================================
+#                               Linguist Settings
+# ==============================================================================
+# Manually define/override some file extension so that GitHub and GitLab can
+# 1) correctly gather statistics on source files, and
+# 2) use proper syntax highlighting on GitHub's WebUI.
+
+/dataset/*     linguist-vendored
+
 # EOF #
