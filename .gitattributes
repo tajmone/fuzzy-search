@@ -10,6 +10,7 @@
 ## ============
 *.cs    text
 *.ex    text eol=lf
+*.fsx   text
 *.h     text
 *.js    text
 *.lua   text
