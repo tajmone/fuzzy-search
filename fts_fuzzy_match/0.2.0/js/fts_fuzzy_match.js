@@ -19,8 +19,8 @@ function fuzzyMatchSimple(pattern, str) {
   let strLength = str.length;
 
   while (patternIdx != patternLength && strIdx != strLength) {
-    var patternChar = pattern.charAt(patternIdx).toLowerCase();
-    var strChar = str.charAt(strIdx).toLowerCase();
+    const patternChar = pattern.charAt(patternIdx).toLowerCase();
+    const strChar = str.charAt(strIdx).toLowerCase();
     if (patternChar == strChar) ++patternIdx;
     ++strIdx;
   }
@@ -196,21 +196,12 @@ function fuzzyMatchRecursive(
   return [false, outScore];
 }
 
-// Strictly optional utility to help make using fts_fuzzy_match easier for large data sets
-// Uses setTimeout to process matches before a maximum amount of time before sleeping
-//
-// To use:
-//      const asyncMatcher = new fts_fuzzy_match(fuzzy_match, "fts", ["ForrestTheWoods"],
-//                                              function(results) { console.log(results); });
-//      asyncMatcher.start();
-//
-
 /**
  * Strictly optional utility to help make using fts_fuzzy_match easier for large data sets
  * Uses setTimeout to process matches before a maximum amount of time before sleeping
  *
  * To use:
- *  var asyncMatcher = new ftsFuzzyMatchAsync(fuzzyMatch, "fts", "ForrestTheWoods",
+ *  const asyncMatcher = new ftsFuzzyMatchAsync(fuzzyMatch, "fts", "ForrestTheWoods",
  *                                              function(results) { console.log(results); });
  *  asyncMatcher.start();
  *
