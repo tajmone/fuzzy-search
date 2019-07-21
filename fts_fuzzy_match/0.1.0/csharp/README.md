@@ -7,6 +7,21 @@ C Sharp implementation of the __[fts_fuzzy_match]__ algorithm, ported by [Collin
 
 Taken from his [public GitHub Gist]  (commit [f596e693], 2016-04-15).
 
+A couple of notes from the code author:
+
+> These are the signatures of the functions included in this code:
+>
+> ```C#
+> public static bool FuzzyMatch(string stringToSearch, string pattern);
+> public static bool FuzzyMatch(string stringToSearch, string pattern, out int outScore);
+> ```
+>
+> If you would like to change these methods to extension methods, just add a this keyword before the first parameter:
+>
+> ```C#
+> public static bool FuzzyMatch(this string stringToSearch, string pattern);
+> public static bool FuzzyMatch(this string stringToSearch, string pattern, out int outScore);
+> ```
 
 # License
 
