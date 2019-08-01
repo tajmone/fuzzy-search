@@ -15,6 +15,7 @@
 *.js    text
 *.lua   text
 *.php   text
+*.py    text
 
 ## ===================
 ## Documentation files
