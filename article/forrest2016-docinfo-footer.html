@@ -1,0 +1,100 @@
+<script>
+    var patternField;
+    var matchFn = fuzzy_match;
+    var resultsTime;
+    var resultsList = null;
+    var currentDataSet = dataSets["ue4_filenames"];
+
+    var asyncMatcher = null;
+
+    onload = function() {
+        // Initialize document element references
+        patternField = document.getElementById('searchPatternField');
+        patternField.oninput = onPatternChange;
+        patternField.onpropertychange = patternField.oninput;
+
+        resultsTime = document.getElementById('resultsTime');
+        resultsList = document.getElementById('resultsList');
+
+        patternField.value = "abc";
+        onPatternChange();
+    };
+
+    displayResults = function(results) {
+        var newResultsList = resultsList.cloneNode(false);
+
+        // Because adding too many elements is catastrophically slow because HTML is slow
+        var max_entries = 10;
+
+        // Create HTML elements for results
+        for (index = 0; index < results.length && index < max_entries; ++index) {
+            var li = document.createElement('li');
+            li.innerHTML = results[index];
+            newResultsList.appendChild(li);
+        }
+
+        // Replace the old results from the DOM.
+        resultsList.parentNode.replaceChild(newResultsList, resultsList);
+        resultsList = newResultsList;
+    };
+
+    onPatternChange = function() {
+
+        // Clear existing async match if it exists
+        if (asyncMatcher !== null) {
+            asyncMatcher.cancel();
+            asyncMatcher = null;
+        }
+
+        var pattern = patternField.value;
+
+        // Data not yet loaded
+        if (currentDataSet == null)
+            return;
+
+        if (resultsList !== null)
+        {
+            // Clear the list
+            var emptyList = resultsList.cloneNode(false);
+            resultsList.parentNode.replaceChild(emptyList, resultsList);
+            resultsList = emptyList;
+        }
+
+        // Early out on empty pattern (such as startup) because JS is slow
+        if (pattern.length == 0)
+            return;
+
+        var startTime = performance.now();
+
+        asyncMatcher = new fts_fuzzy_match_async(matchFn, pattern, currentDataSet, function(results) {
+            // Scored function requires sorting
+            if (matchFn == fuzzy_match) {
+                results = results
+                    .sort(function(a,b) { return b[1] - a[1]; })
+                    .map(function(v) { return v[1] + " - " + v[2]; });
+            }
+
+            var endTime = performance.now();
+
+            // Display number of matches and how long it took
+            resultsTime.innerText = results.length + " matches in " + (endTime - startTime).toFixed(1) + " milliseconds";
+
+            displayResults(results);
+
+            asyncMatcher = null;
+        });
+        asyncMatcher.start();
+    };
+
+    onFormatChange = function(radio) {
+        matchFn = radio.value == "PrintByScore" ? fuzzy_match : fuzzy_match_simple;
+        onPatternChange();
+    }
+
+    onDataSetChange = function(radio) {
+        var setname = radio.value;
+        currentDataSet = dataSets[setname];
+        onPatternChange();
+    };
+
+</script>

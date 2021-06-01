@@ -23,6 +23,7 @@ Created by [Tristano Ajmone] in July 19, 2019.
 
 # Project Contents
 
+- [`/article/`](./article/) — _Reverse Engineering Sublime Text’s Fuzzy Match_ article by [Forrest Smith], 2016.
 - [`/dataset/`](./dataset/) — sample data sets for testing the algorithms.
 - [`/fts_fuzzy_match/`](./fts_fuzzy_match/) — [Forrest Smith]'s fuzzy search algorithm and its ports to various languages:
     + [`/0.1.0/`](./fts_fuzzy_match/0.1.0/) — original algorithm based on the 2016 article.
@@ -38,6 +39,8 @@ In March 2016, Forrest Smith published an inspiring article entitled _[Reverse E
 Along with the article, Forrest also published __[fts_fuzzy_match]__, a sample implementation of the algorithm (in C++ and JavaScript) in his __[lib_fts]__ collection of single-file public domain libraries.
 
 The article and __fts_fuzzy_match__ sparkled a wave of interest on the topic, which led to numerous improvement suggestions from various authors — [including Sublime Text author Jon Skinner] — and a number of ports of __fts_fuzzy_match__ to other languages.
+
+In June, 2021, Forrest Smith kindly granted me permission to reproduce in this repository his _[Reverse Engineering Sublime Text’s Fuzzy Match]_ article, in AsciiDoc format, which you'll now find inside the [`/article/`](./article/) folder.
 
 # About This Project
 
@@ -96,7 +99,6 @@ This project values Copyright status and third party licenses, and strives hard 
 
 [Forrest Smith]: https://github.com/forrestthewoods "View Forrest Smith's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
-
 
 <!-- licenses -->
 
