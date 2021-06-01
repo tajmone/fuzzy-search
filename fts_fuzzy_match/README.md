@@ -34,6 +34,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/python/`][1py] — Python port by [Matt Menzenski].
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
     + [`/cpp/`][2cpp] — C++ version by [Forrest Smith].
+    + [`/csharp/`][2cs] — C# port by [@theor].
     + [`/elixir/`][2ex] — Elixir port by [@WolfDan].
     + [`/js/`][2js] — JavaScript version, updated by [@nrgwsth].
 - [`fuzzy_match.md`][fm md] — original __fts_fuzzy_match__ documentation.
@@ -103,6 +104,7 @@ Forrest's algorithm has inspired a number of third party ports to other language
 |  language  | version |       author       |       link       |                 source file                 |    license    |
 |------------|---------|--------------------|------------------|---------------------------------------------|---------------|
 | C#         | 0.1.0   | [Collin Dillinger] | [Gist][fm c#]    | [`0.1.0/csharp/FuzzyMatch.cs`][fm1c#]       | public domain |
+| C#         | 0.2.0   | [@theor]           | [PR #13]         | [`0.2.0/csharp/FuzzyMatch.cs`][fm1c#]       | public domain |
 | Elixir     | 0.2.0   | [@WolfDan]         | [Gist][fm ex]    | [`0.2.0/elixir/fts_fuzzy_match.ex`][fm2ex]  | MIT           |
 | F#         | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]  | [`0.1.0/fsharp/fts_fuzzy_match.fsx`][fm1f#] | MIT           |
 | JavaScript | 0.2.0   | [@nrgwsth]         | [PR #10]         | [`0.2.0/js/fts_fuzzy_match.js`][fm2js]      | public domain |
@@ -159,6 +161,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 [@detectiveYarmas]: https://github.com/detectiveYarmas "View @detectiveYarmas's GitHub profile"
 [@genotrance]: https://github.com/genotrance "View @genotrance's GitHub profile"
 [@nrgwsth]: https://github.com/nrgwsth "View @nrgwsth's GitHub profile"
+[@theor]: https://github.com/theor "View @theor's GitHub profile"
 [@WolfDan]: https://github.com/WolfDan "View @WolfDan's GitHub profile"
 [Blake Mealey]: https://github.com/blake-mealey "View Blake Mealey's GitHub profile"
 [Collin Dillinger]: https://github.com/CDillinger "View Collin Dillinger's GitHub profile"
@@ -174,6 +177,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 <!-- PRs & commits  -->
 
 [PR #10]: https://github.com/tajmone/fuzzy-search/pull/10 "View original pull request"
+[PR #13]: https://github.com/tajmone/fuzzy-search/pull/13 "View original pull request"
 
 <!-- upstream sources -->
 
@@ -198,15 +202,16 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 
 <!-- project folders -->
 
-[1cpp]: ./0.1.0/cpp/    "Navigate to C++ algorithm"
-[1cs]:  ./0.1.0/csharp/ "Navigate to C# algorithm"
-[1fsx]: ./0.1.0/fsharp/ "Navigate to F# algorithm"
+[1cpp]: ./0.1.0/cpp/    "Navigate to C++ algorithm v0.1.0"
+[1cs]:  ./0.1.0/csharp/ "Navigate to C# algorithm v0.1.0"
+[1fsx]: ./0.1.0/fsharp/ "Navigate to F# algorithm v0.1.0"
 [1js]:  ./0.1.0/js/     "Navigate to JavaScript algorithm v0.1.0"
-[1lua]: ./0.1.0/lua/    "Navigate to Lua algorithm"
-[1php]: ./0.1.0/php/    "Navigate to PHP algorithm"
+[1lua]: ./0.1.0/lua/    "Navigate to Lua algorithm v0.1.0"
+[1php]: ./0.1.0/php/    "Navigate to PHP algorithm v0.1.0"
 [1py]:  ./0.1.0/python/ "Navigate to Python algorithm v0.1.0"
-[2cpp]: ./0.2.0/cpp/    "Navigate to C++ algorithm"
-[2ex]: ./0.2.0/elixir/  "Navigate to Elixir algorithm"
+[2cpp]: ./0.2.0/cpp/    "Navigate to C++ algorithm v0.2.0"
+[2cs]:  ./0.2.0/csharp/ "Navigate to C# algorithm v0.2.0"
+[2ex]: ./0.2.0/elixir/  "Navigate to Elixir algorithm v0.2.0"
 [2js]:  ./0.2.0/js/     "Navigate to JavaScript algorithm v0.2.0"
 
 <!-- project files -->
