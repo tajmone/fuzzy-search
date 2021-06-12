@@ -1,13 +1,23 @@
-################################################################################
-# A collection of algorithms for fuzzy search like in Sublime Text:            #
-# https://github.com/tajmone/fuzzy-search                                      #
-################################################################################
+#############################################
+#  Fuzzy search like in Sublime Text:       #
+#  https://github.com/tajmone/fuzzy-search  #
+#############################################
 
 * text=auto
 
-## ============
+## Repository Configuration
+###########################
+.editorconfig    text eol=lf
+.gitlab-ci.yml   text eol=lf
+.travis.yml      text eol=lf
+.gitattributes   text eol=lf
+.gitconfig       text eol=lf
+.gitignore       text eol=lf
+.gitmodules      text eol=lf
+
+
 ## Source Files
-## ============
+###############
 *.cs    text
 *.ex    text eol=lf
 *.fsx   text
@@ -17,40 +27,28 @@
 *.php   text
 *.py    text
 
-## ===================
-## Documentation files
-## ===================
-*.md           text
-*.txt          text
-COPYING        text
-LICENSE        text
 
-## ===================
-## Configuration files
-## ===================
-*.sublime-*    text
-.editorconfig  text
+## Documentation Files
+######################
+*.asciidoc   text
+*.md         text
+*.txt        text
+COPYING      text
+LICENSE      text
 
-## -------------
-## Git settings:
-## -------------
-.gitattributes text
-.gitconfig     text
-.gitignore     text
-.gitmodules    text eol=crlf
 
-## ==========
 ## Exceptions
-## ==========
+#############
 /dataset/*.txt text eol=lf
 
-# ==============================================================================
-#                               Linguist Settings
-# ==============================================================================
-# Manually define/override some file extension so that GitHub and GitLab can
+
+## Linguist Settings
+####################
+
+# Manually define/override some file extension so that GitHub can
 # 1) correctly gather statistics on source files, and
 # 2) use proper syntax highlighting on GitHub's WebUI.
 
-/dataset/*     linguist-vendored
+/dataset/*   linguist-vendored
 
 # EOF #
