@@ -14,7 +14,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     - [The Original Algorithm from 2016](#the-original-algorithm-from-2016)
     - [The 2017 Update](#the-2017-update)
     - [License](#license)
-- [FTS Fuzzy Match Ports](#fts-fuzzy-match-ports)
+- [FTS Fuzzy Match Implementation](#fts-fuzzy-match-implementation)
 - [FTS Fuzzy Match Derivatives](#fts-fuzzy-match-derivatives)
 - [FTS Fuzzy Match Wrappers](#fts-fuzzy-match-wrappers)
 
@@ -63,10 +63,10 @@ __fts_fuzzy_match__ is an algorithm for "fuzzy string matching inspired by Subli
 
 - https://github.com/forrestthewoods/lib_fts
 
-Updated copies of the original version 0.1.0 of Forrest algorithm can be found here:
+The latest version of the original algorithms v0.1.0 implementations, by Forrest, can be found here:
 
-- [`./0.1.0/cpp/fts_fuzzy_match.h`][fm1cpp] — C++, v0.1.0, taken from commit [cb72472][fm1cpp cb72472], 2016-10-28.
-- [`./0.1.0/js/fts_fuzzy_match.js`][fm1js] — JavaScript, v0.1.0, taken from commit [08a4bb1][fm1js 08a4bb1], 2017-02-19.
+- [`./0.1.0/cpp/fts_fuzzy_match.h`][fm1 cpp] — C++, v0.1.0, taken from commit [cb72472][fm1cpp cb72472] (2016-10-28).
+- [`./0.1.0/js/fts_fuzzy_match.js`][fm1 js] — JavaScript, v0.1.0, taken from commit [08a4bb1][fm1js 08a4bb1] (2017-02-19).
 
 Although there have been various updates and tweaks to v0.1.0 algorithms, the bump to v0.2.0 introduced a significant quality improvement to its functionality — as well as some complexity to its code, and a slight performance overhead.
 Those wishing to study the algorithms, should start by looking at the code of v0.1.0 first, and then move on to study v0.2.0, to better understand its core features via the former, and appreciate the improvements introduced by the latter.
@@ -81,11 +81,11 @@ In February 2017 — i.e. a year after the original article — [Sublime Text] a
 
 Skinner's feedback was a major breakthrough that prompted Forrest to update the __fts_fuzzy_match__ C++ algorithm to v0.2.0, in order to include the "exhaustive search" suggested by Skinner:
 
-- [`./0.2.0/cpp/fts_fuzzy_match.h`][fm2cpp] — C++, v0.2.0, taken from commit [d541eb4][fm2cpp d541eb4], 2017-02-19.
+- [`./0.2.0/cpp/fts_fuzzy_match.h`][fm2 cpp] — C++, v0.2.0, taken from commit [d541eb4][fm2cpp d541eb4] (2017-02-19).
 
-It's worth noting that Forrest never updated his JavaScript implementation to v0.2.0, and that many of the third party ports of __fts_fuzzy_match__ to other languages are still based on v0.1.0 of the algorithm.
+It's worth noting that Forrest never updated his JavaScript implementation to v0.2.0 ([@nrgwsth] did, in [PR #10]), and that many of the third party ports of __fts_fuzzy_match__ to other languages are still based on v0.1.0 of the algorithm.
 
-For this reasons, I decided to separate into different folders all implementations of __fts_fuzzy_match__, according to their version number, to avoid confusion and to simplify the task for anyone wishing to study the sources or port them to other languages.
+For this reason, I decided to separate all implementations of __fts_fuzzy_match__ into different folders, according to their algorithm version, to avoid confusion and simplify things to anyone wishing to study the sources or port them to other languages.
 
 ## License
 
@@ -98,21 +98,25 @@ The source files also embed the above license in their comments.
 The __[lib_fts]__ repository doesn't explicitly mention if this license also applies to documentation files; so I can't vouch that the [`fuzzy_match.md`][fm md] document is also into the public domain.
 I've nevertheless decided to include it (_as is_) in this project for completion and fairness sake, and to shield the original author from any inaccuracies I might have introduced in my own documentation of his algorithms and projects.
 
-# FTS Fuzzy Match Ports
+# FTS Fuzzy Match Implementation
 
 Forrest's algorithm has inspired a number of third party ports to other languages.
+The following table lists all the implementations available in this repository, of both versions of the algorithm, sorted by language.
 
-|      language     | version |       author       |       link       |                 source file                 |    license    |
-|-------------------|---------|--------------------|------------------|---------------------------------------------|---------------|
-| C#                | 0.1.0   | [Collin Dillinger] | [Gist][fm c#]    | [`0.1.0/csharp/FuzzyMatch.cs`][fm1c#]       | public domain |
-| C#                | 0.2.0   | [@theor]           | [PR #13]         | [`0.2.0/csharp/FuzzyMatch.cs`][fm2c#]       | public domain |
-| Delphi/FreePascal | 0.2.0   | [j.visser]         | [Gist][fm pas]   | [`0.2.0/delphi/uFuzzyMatching.pas`][fm2pas] | CC0           |
-| Elixir            | 0.2.0   | [@WolfDan]         | [Gist][fm ex]    | [`0.2.0/elixir/fts_fuzzy_match.ex`][fm2ex]  | MIT           |
-| F#                | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]  | [`0.1.0/fsharp/fts_fuzzy_match.fsx`][fm1f#] | MIT           |
-| JavaScript        | 0.2.0   | [@nrgwsth]         | [PR #10]         | [`0.2.0/js/fts_fuzzy_match.js`][fm2js]      | public domain |
-| Lua               | 0.1.0   | [Blake Mealey]     | [GitHub][fm lua] | [`0.1.0/lua/fts_fuzzy_match.lua`][fm1lua]   | public domain |
-| PHP               | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php] | [`0.1.0/php/fts_fuzzy_match.php`][fm1php]   | public domain |
-| Python            | 0.1.0   | [Matt Menzenski]   | [Gist][fm py]    | [`0.1.0/python/fts_fuzzy_match.py`][fm1py]  | MIT           |
+|      language     | version |       author       |           link           |                 source file                  |    license    |
+|-------------------|---------|--------------------|--------------------------|----------------------------------------------|---------------|
+| C#                | 0.1.0   | [Collin Dillinger] | [Gist][fm c#]            | [`0.1.0/csharp/FuzzyMatch.cs`][fm1 cs]       | public domain |
+| C#                | 0.2.0   | [@theor]           | [PR #13]                 | [`0.2.0/csharp/FuzzyMatch.cs`][fm2 cs]       | public domain |
+| C++               | 0.1.0   | [Forrest Smith]    | [GitHub][fm1cpp cb72472] | [`0.1.0/cpp/fts_fuzzy_match.h`][fm1 cpp]     | public domain |
+| C++               | 0.2.0   | [Forrest Smith]    | [GitHub][fm2cpp d541eb4] | [`0.2.0/cpp/fts_fuzzy_match.h`][fm2 cpp]     | public domain |
+| Delphi/FreePascal | 0.2.0   | [j.visser]         | [Gist][fm pas]           | [`0.2.0/delphi/uFuzzyMatching.pas`][fm2 pas] | CC0           |
+| Elixir            | 0.2.0   | [@WolfDan]         | [Gist][fm ex]            | [`0.2.0/elixir/fts_fuzzy_match.ex`][fm2 ex]  | MIT           |
+| F#                | 0.1.0   | [Xavier Zwirtz]    | [GitHub][fm f#]          | [`0.1.0/fsharp/fts_fuzzy_match.fsx`][fm1 fs] | MIT           |
+| JavaScript        | 0.1.0   | [Forrest Smith]    | [GitHub][fm1js 08a4bb1]  | [`0.1.0/js/fts_fuzzy_match.js`][fm1 js]      | public domain |
+| JavaScript        | 0.2.0   | [@nrgwsth]         | [PR #10]                 | [`0.2.0/js/fts_fuzzy_match.js`][fm2 js]      | public domain |
+| Lua               | 0.1.0   | [Blake Mealey]     | [GitHub][fm lua]         | [`0.1.0/lua/fts_fuzzy_match.lua`][fm1 lua]   | public domain |
+| PHP               | 0.1.0   | [@detectiveYarmas] | [GitHub][fm php]         | [`0.1.0/php/fts_fuzzy_match.php`][fm1 php]   | public domain |
+| Python            | 0.1.0   | [Matt Menzenski]   | [Gist][fm py]            | [`0.1.0/python/fts_fuzzy_match.py`][fm1 py]  | MIT           |
 
 I've started to include in this project the code of the licensed ports, and will ask the original authors for permission to include those ports that don't have a clear or explicit license.
 
@@ -130,7 +134,7 @@ Due to the presence of custom tweaks, they diverge from the original algorithm a
 
 # FTS Fuzzy Match Wrappers
 
-Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
+Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages.
 
 |    name    | language |     author    | license |
 |------------|----------|---------------|---------|
@@ -193,7 +197,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 [fm c#]: https://gist.github.com/CDillinger/2aa02128f840bdca90340ce08ee71bc2 "View the C# port of fts_fuzzy_match v0.1.0, by Collin Dillinger"
 [fm ex]: https://gist.github.com/WolfDan/7cef2973d1fcae8f8e84c00b0a959fc8 "View the Elixir port of fts_fuzzy_match v0.2.0, by @WolfDan"
 [fm f#]: https://github.com/xavierzwirtz/lib_fts/blob/939fc8730334a97156ca1e0791ae11250154a1f4/code/fts_fuzzy_match.fsx "View the F# port of fts_fuzzy_match v0.1.0, by Xavier Zwirtz"
-[fm lua]: https://gist.github.com/blake-mealey/f7752f95aed71fe23428abb0ffba2c96"View the Lua port of fts_fuzzy_match v0.1.0, by Blake Mealey"
+[fm lua]: https://gist.github.com/blake-mealey/f7752f95aed71fe23428abb0ffba2c96 "View the Lua port of fts_fuzzy_match v0.1.0, by Blake Mealey"
 [fm pas]: https://gist.github.com/GolezTrol/ebe9842df38b8b641c2a044d8b6dbd1e "View the Delphi/FreePascal port of fts_fuzzy_match v0.2.0, by j.visser"
 [fm php]: https://github.com/detectiveYarmas/lib_fts/blob/master/code/fts_fuzzy_match.php "View the PHP port of fts_fuzzy_match v0.1.0, by @detectiveYarmas"
 [fm py]: https://gist.github.com/menzenski/f0f846a254d269bd567e2160485f4b89 "View the Python port of fts_fuzzy_match v0.1.0, by Matt Menzenski"
@@ -222,17 +226,18 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1cpp] in various languages.
 <!-- project files -->
 
 [fm md]: ./fuzzy_match.md "View the original documentation of fts_fuzzy_match"
-[fm1c#]:  ./0.1.0/csharp/FuzzyMatch.cs
-[fm1cpp]: ./0.1.0/cpp/fts_fuzzy_match.h
-[fm1f#]:  ./0.1.0/fsharp/fts_fuzzy_match.fsx
-[fm1js]:  ./0.1.0/js/fts_fuzzy_match.js
-[fm1lua]: ./0.1.0/lua/fts_fuzzy_match.lua
-[fm1php]: ./0.1.0/php/fts_fuzzy_match.php
-[fm1py]:  ./0.1.0/python/fts_fuzzy_match.py
-[fm2c#]:  ./0.2.0/csharp/FuzzyMatch.cs
-[fm2cpp]: ./0.2.0/cpp/fts_fuzzy_match.h
-[fm2ex]:  ./0.2.0/elixir/fts_fuzzy_match.ex
-[fm2js]:  ./0.2.0/js/fts_fuzzy_match.js
-[fm2pas]: ./0.2.0/delphi/uFuzzyMatching.pas
+
+[fm1 cpp]: ./0.1.0/cpp/fts_fuzzy_match.h      "C++ implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 cs]:  ./0.1.0/csharp/FuzzyMatch.cs       "C# implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 fs]:  ./0.1.0/fsharp/fts_fuzzy_match.fsx "F# implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 js]:  ./0.1.0/js/fts_fuzzy_match.js      "JavaScript implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 lua]: ./0.1.0/lua/fts_fuzzy_match.lua    "Lua implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 php]: ./0.1.0/php/fts_fuzzy_match.php    "PHP implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 py]:  ./0.1.0/python/fts_fuzzy_match.py  "Python implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 cpp]: ./0.2.0/cpp/fts_fuzzy_match.h      "C++ implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 cs]:  ./0.2.0/csharp/FuzzyMatch.cs       "C# implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 ex]:  ./0.2.0/elixir/fts_fuzzy_match.ex  "Elixir implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 js]:  ./0.2.0/js/fts_fuzzy_match.js      "JavaScript implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 pas]: ./0.2.0/delphi/uFuzzyMatching.pas  "Delphi/FreePascal implementation of 'fts_fuzzy_match' v0.1.0"
 
 <!-- EOF -->

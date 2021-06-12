@@ -2,9 +2,10 @@
 
 - https://github.com/tajmone/fuzzy-search
 
-A collection of algorithms to implement fuzzy search like in [Sublime Text], in various languages; based on [Forrest Smith]'s __[fts_fuzzy_match]__.
+A collection of algorithms to implement fuzzy search like in [Sublime Text], in various languages, based on [Forrest Smith]'s __[fts_fuzzy_match]__ algorithms, as well as an [authorized AsciiDoc reproduction] ([Live HTML Preview]) of the original
+_[Reverse Engineering Sublime Text’s Fuzzy Match]_ article by Forrest Smith, 2016.
 
-Created by [Tristano Ajmone] in July 19, 2019.
+Project created by [Tristano Ajmone] in July 19, 2019.
 
 -----
 
@@ -23,7 +24,7 @@ Created by [Tristano Ajmone] in July 19, 2019.
 
 # Project Contents
 
-- [`/article/`](./article/) — _Reverse Engineering Sublime Text’s Fuzzy Match_ article by [Forrest Smith], 2016.
+- [`/article/`](./article/) — _Reverse Engineering Sublime Text’s Fuzzy Match_ article by [Forrest Smith], 2016 ([Live HTML Preview]).
 - [`/dataset/`](./dataset/) — sample data sets for testing the algorithms.
 - [`/fts_fuzzy_match/`](./fts_fuzzy_match/) — [Forrest Smith]'s fuzzy search algorithm and its ports to various languages:
     + [`/0.1.0/`](./fts_fuzzy_match/0.1.0/) — original algorithm based on the 2016 article.
@@ -68,7 +69,7 @@ As for the various assets created by [Tristano Ajmone]  (the project maintainer)
 
 Unless otherwise specified, the above license applies to all markdown documents, README files, project configuration files and all other assets created by [Tristano Ajmone], including source code.
 
-All third party assets published into the public domain are hereby released under CC0 license.
+All third party assets originally published into the public domain are hereby released under the CC0 license governing the project, to ensure permissibility of use in those countries that don't recognize public domain.
 
 Any third party contribution to existing assets shall fall under the same license of the asset being updated or modified.
 
@@ -80,6 +81,8 @@ This project values Copyright status and third party licenses, and strives hard 
 ------------------------------------------------------------------------------>
 
 [including Sublime Text author Jon Skinner]: https://www.reddit.com/r/programming/comments/4cfz8r/reverse_engineering_sublime_texts_fuzzy_match/d1i7unr/ "Read Jon Skinner's feedback on Forrest article, on reddit"
+[authorized AsciiDoc reproduction]: ./article/forrest2016.asciidoc "AsciiDoc port of 'Reverse Engineering Sublime Text’s Fuzzy Match' by Forrest Smith, 2016"
+[Live HTML Preview]: https://htmlpreview.github.io/?https://github.com/tajmone/fuzzy-search/blob/master/article/forrest2016.html "Live HTML Preview of our reproduction of 'Reverse Engineering Sublime Text’s Fuzzy Match' by Forrest Smith, 2016"
 
 <!-- editors -->
 
