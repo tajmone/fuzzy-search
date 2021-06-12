@@ -39,7 +39,7 @@ LICENSE      text
 
 ## Exceptions
 #############
-/dataset/*.txt text eol=lf
+/dataset/*.txt text eol=lf  linguist-vendored
 
 
 ## Linguist Settings
@@ -49,6 +49,7 @@ LICENSE      text
 # 1) correctly gather statistics on source files, and
 # 2) use proper syntax highlighting on GitHub's WebUI.
 
-/dataset/*   linguist-vendored
+*.html                     linguist-documentation
+article/forrest2016.html   linguist-generated
 
 # EOF #
