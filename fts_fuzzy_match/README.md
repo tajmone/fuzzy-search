@@ -55,7 +55,7 @@ Fuzzy matching, and its application to fuzzy searching, is a wide and complex su
 To Forrest Smith goes merit of having opened up the subject to public discussion, for before his 2016 article there weren't many non-specialistic resources on this topic — at least, none that I managed to find via extensive googling.
 Definitely, both his article and __fts_fuzzy_match__ code have been game changers in this respect, and had ripple effect in the open source community, especially on GitHub.
 
-Since there have been ports of both versions of the algorithm to other languages, I'll now summarize its history and the main differences between v0.1.0 and v0.2.0, to provide a better picture of its evolution and diffusion. 
+Since there have been ports of both versions of the algorithm to other languages, I'll now summarize its history and the main differences between v0.1.0 and v0.2.0, to provide a better picture of its evolution and diffusion.
 
 ## The Original Algorithm from 2016
 
@@ -76,7 +76,7 @@ Those wishing to study the algorithms, should start by looking at the code of v0
 In February 2017 — i.e. a year after the original article — [Sublime Text] author [Jon Skinner posted on reddit] a comment on Forrest article, confirming the soundness of the overall approach and also providing insights on how to improve the algorithm:
 
 > __[jskinner]__: Sublime Text author here. Nice writeup! The actual algorithm that Sublime Text uses is similar in principle, but the implementation is rather different in the name of speed.
-> 
+>
 > There are a couple of things you may want to tweak for better quality matching: you likely want to search more exhaustively for a better match, e.g., searching for "lll" in the UE4 filename list matches "SVisualLoggerLogsList.h", but not as well as it should, as it doesn't pickup all the upper case Ls. If you don't mind sacrificing a little speed, then it's also nice to handle transpositions, so that "sta" can still match against "SpawnActorTimer", just with a lower score - Sublime Text 3 does this.
 
 Skinner's feedback was a major breakthrough that prompted Forrest to update the __fts_fuzzy_match__ C++ algorithm to v0.2.0, in order to include the "exhaustive search" suggested by Skinner:

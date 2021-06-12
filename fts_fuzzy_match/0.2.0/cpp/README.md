@@ -32,27 +32,27 @@ For the original v0.1.0 algorithm, see: [`../../0.1.0/cpp/fts_fuzzy_match.h`][fm
 After one year from the pubblication of Forrest's _[Reverse Engineering Sublime Text's Fuzzy Match]_ article, [Sublime Text] author [Jon Skinner posted on reddit] a comment on Forrest article, confirming the soundness of the overall approach and also providing insights on how to improve the algorithm:
 
 > __[jskinner]__: Sublime Text author here. Nice writeup! The actual algorithm that Sublime Text uses is similar in principle, but the implementation is rather different in the name of speed.
-> 
+>
 > There are a couple of things you may want to tweak for better quality matching: you likely want to search more exhaustively for a better match, e.g., searching for "lll" in the UE4 filename list matches "SVisualLoggerLogsList.h", but not as well as it should, as it doesn't pickup all the upper case Ls. If you don't mind sacrificing a little speed, then it's also nice to handle transpositions, so that "sta" can still match against "SpawnActorTimer", just with a lower score - Sublime Text 3 does this.
 
 Skinner's feedback was a major breakthrough that prompted Forrest to update the __fts_fuzzy_match__ C++ algorithm to v0.2.0 to include the "exhaustive search" suggested by Skinner, and to add the following update note to the original article:
 
 
 > This project has been updated based on [feedback] from Sublime Text's Jon Skinner. The algorithm now performs an exhaustive search to find all possible matches and returns the match with the highest score.
-> 
+>
 > Consider the string "`SVisualLoggerLogsList.h`" and the search pattern "`LLL`". There are four L's so they can be matched several different ways. The naive approach might match the first three L's. A higher scoring match would skip the first L and match the three CamelCase L's.
-> 
+>
 > ```
 > String: SVisualLoggerLogsList.h
 >     Pattern: LLL
-> 
+>
 > Possible Matches (in bold):
 >     SVisualLoggerLogsList.h
 >     SVisualLoggerLogsList.h
 >     SVisualLoggerLogsList.h
 >     SVisualLoggerLogsList.h
 > ```
-> 
+>
 > The new exhaustive method finds all matches and returns the one with the highest score. Performing an exhaustive search is slower than finding just the first match. However the small decrease in speed is more than made up for by the increase in result quality.
 
 # License
