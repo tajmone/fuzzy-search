@@ -105,7 +105,7 @@ This project values Copyright status and third party licenses, and strives hard 
 
 <!-- licenses -->
 
-[Creative Commons Zero v1.0 Universal]: https://creativecommons.org/publicdomain/zero/1.0/
+[Creative Commons Zero v1.0 Universal]: https://creativecommons.org/publicdomain/zero/1.0/ "Visit the CC0 1.0 Universal license page at CreativeCommons.org"
 
 <!-- project files -->
 
