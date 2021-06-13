@@ -370,16 +370,17 @@ There are four L's so they can be matched several different ways.
 The naive approach might match the first three L's.
 A higher scoring match would skip the first L and match the three CamelCase L's.
 
-...............................
+[subs="quotes"]
+.....................................................................
 String: SVisualLoggerLogsList.h
     Pattern: LLL
 
 Possible Matches (in bold):
-    SVisualLoggerLogsList.h
-    SVisualLoggerLogsList.h
-    SVisualLoggerLogsList.h
-    SVisualLoggerLogsList.h
-...............................
+    SVisua[.red]##**lL**##ogger[.red]##**L**##ogsList.h
+    SVisual[.red]##**L**##ogger[.red]##**L**##ogs[.red]##**L**##ist.h
+    SVisua[.red]##**l**##Logger[.red]##**L**##ogs[.red]##**L**##ist.h
+    SVisua[.red]##**lL**##oggerLogs[.red]##**L**##ist.h
+.....................................................................
 
 The new exhaustive method finds all matches and returns the one with the highest score.
 Performing an exhaustive search is slower than finding just the first match.
