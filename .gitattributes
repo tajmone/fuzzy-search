@@ -39,8 +39,9 @@ LICENSE      text
 
 ## Exceptions
 #############
-/dataset/*.txt text eol=lf  linguist-vendored
-
+/dataset/*.txt         text eol=lf  linguist-vendored
+test_results.txt       text eol=lf  linguist-generated
+expected_results.txt   text eol=lf  linguist-generated
 
 ## Linguist Settings
 ####################

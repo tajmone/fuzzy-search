@@ -65,4 +65,7 @@ insert_final_newline = true
 [dataset/*.txt]
 insert_final_newline = false
 
+[{test_results,expected_results}.txt]
+end_of_line = lf
+
 # EOF #

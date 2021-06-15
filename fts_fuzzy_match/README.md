@@ -14,7 +14,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     - [The Original Algorithm from 2016](#the-original-algorithm-from-2016)
     - [The 2017 Update](#the-2017-update)
     - [License](#license)
-- [FTS Fuzzy Match Implementation](#fts-fuzzy-match-implementation)
+- [FTS Fuzzy Match Implementations](#fts-fuzzy-match-implementations)
 - [FTS Fuzzy Match Derivatives](#fts-fuzzy-match-derivatives)
 - [FTS Fuzzy Match Wrappers](#fts-fuzzy-match-wrappers)
 
@@ -32,6 +32,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/lua/`][1lua] — Lua port by [Blake Mealey].
     + [`/php/`][1php] — PHP port by [@detectiveYarmas].
     + [`/python/`][1py] — Python port by [Matt Menzenski].
+    + [`expected_results.txt`][expect1] — Test data for validating v0.1.0 implementations.
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
     + [`/cpp/`][2cpp] — C++ version by [Forrest Smith].
     + [`/csharp/`][2cs] — C# port by [@theor].
@@ -39,7 +40,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/elixir/`][2ex] — Elixir port by [@WolfDan].
     + [`/js/`][2js] — JavaScript version, updated by [@nrgwsth].
 - [`fuzzy_match.md`][fm md] — original __fts_fuzzy_match__ documentation.
-
+- [`PORTING.md`][PORTING.md] — Porting and testing guidelines.
 
 # About FTS Fuzzy Match
 
@@ -98,7 +99,7 @@ The source files also embed the above license in their comments.
 The __[lib_fts]__ repository doesn't explicitly mention if this license also applies to documentation files; so I can't vouch that the [`fuzzy_match.md`][fm md] document is also into the public domain.
 I've nevertheless decided to include it (_as is_) in this project for completion and fairness sake, and to shield the original author from any inaccuracies I might have introduced in my own documentation of his algorithms and projects.
 
-# FTS Fuzzy Match Implementation
+# FTS Fuzzy Match Implementations
 
 Forrest's algorithm has inspired a number of third party ports to other languages.
 The following table lists all the implementations available in this repository, of both versions of the algorithm, sorted by language.
@@ -121,6 +122,9 @@ The following table lists all the implementations available in this repository, 
 I've started to include in this project the code of the licensed ports, and will ask the original authors for permission to include those ports that don't have a clear or explicit license.
 
 > __NOTE__ — I haven't had a chance to fully test all these ports, so I cannot guarantee for their quality and accuracy. But I've studied their source enough to establish that they are indeed implementation of the algorithm, and not malicious code.
+
+For guidelines on how to port and test the algorithms to a new language, see the [`PORTING.md`][PORTING.md] document.
+
 
 # FTS Fuzzy Match Derivatives
 
@@ -225,6 +229,8 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 
 <!-- project files -->
 
+[expect1]: ./0.1.0/expected_results.txt "Expected test results for v0.1.0"
+[PORTING.md]: ./PORTING.md "Porting and testing guidelines"
 [fm md]: ./fuzzy_match.md "View the original documentation of fts_fuzzy_match"
 
 [fm1 cpp]: ./0.1.0/cpp/fts_fuzzy_match.h      "C++ implementation of 'fts_fuzzy_match' v0.1.0"
