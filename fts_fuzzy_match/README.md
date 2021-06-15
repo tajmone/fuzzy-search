@@ -39,6 +39,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/delphi/`][2ex] — Delphi/FreePascal port by [j.visser].
     + [`/elixir/`][2ex] — Elixir port by [@WolfDan].
     + [`/js/`][2js] — JavaScript version, updated by [@nrgwsth].
+    + [`expected_results.txt`][expect2] — Test data for validating v0.2.0 implementations.
 - [`fuzzy_match.md`][fm md] — original __fts_fuzzy_match__ documentation.
 - [`PORTING.md`][PORTING.md] — Porting and testing guidelines.
 
@@ -230,6 +231,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 <!-- project files -->
 
 [expect1]: ./0.1.0/expected_results.txt "Expected test results for v0.1.0"
+[expect2]: ./0.2.0/expected_results.txt "Expected test results for v0.2.0"
 [PORTING.md]: ./PORTING.md "Porting and testing guidelines"
 [fm md]: ./fuzzy_match.md "View the original documentation of fts_fuzzy_match"
 
