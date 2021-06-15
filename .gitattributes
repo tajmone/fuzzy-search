@@ -16,6 +16,14 @@
 .gitmodules      text eol=lf
 
 
+## Shell Scripts
+################
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.sh    text eol=lf
+*.ps1   text eol=crlf
+
+
 ## Source Files
 ###############
 *.cs    text
