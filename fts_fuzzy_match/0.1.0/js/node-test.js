@@ -1,8 +1,8 @@
-/*  ====================================================================
-    fts_fuzzy_match tester, by Tristano Ajmone, public domain (CC0 1.0).
-    https://github.com/tajmone/fuzzy-search
-    ====================================================================
-*/
+/* ********************************************************************
+ * fts_fuzzy_match tester, by Tristano Ajmone, public domain (CC0 1.0).
+ * https://github.com/tajmone/fuzzy-search
+ * ********************************************************************
+ */
 const datasetFile = '../../../dataset/ue4_filenames.txt';
 const resultsFile = './test_results.txt';
 const pattern = 'LLL';

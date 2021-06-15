@@ -4,14 +4,14 @@
 //   license: you are granted a perpetual, irrevocable license to copy, modify,
 //   publish, and distribute this file as you see fit.
 //
-// VERSION 
+// VERSION
 //   0.1.0  (2016-03-28)  Initial release
 //
 // AUTHOR
 //   Forrest Smith
 //
 // CONTRIBUTORS
-//   Jørgen Tjernø - async helper
+//   JÃ¸rgen TjernÃ¸ - async helper
 
 
 // Returns true if each character in pattern is found sequentially within str
@@ -35,11 +35,11 @@ function fuzzy_match_simple(pattern, str) {
 
 // Returns [bool, score, formattedStr]
 // bool: true if each character in pattern is found sequentially within str
-// score: integer; higher is better match. Value has no intrinsic meaning. Range varies with pattern. 
+// score: integer; higher is better match. Value has no intrinsic meaning. Range varies with pattern.
 //        Can only compare scores with same search pattern.
 // formattedStr: input str with matched characters marked in <b> tags. Delete if unwanted.
 function fuzzy_match(pattern, str) {
-   
+
     // Score consts
     var adjacency_bonus = 5;                // bonus for adjacent matches
     var separator_bonus = 10;               // bonus if match occurs after a separator
@@ -171,7 +171,7 @@ function fuzzy_match(pattern, str) {
 // Uses setTimeout to process matches before a maximum amount of time before sleeping
 //
 // To use:
-//      var asyncMatcher = new fts_fuzzy_match(fuzzy_match, "fts", "ForrestTheWoods", 
+//      var asyncMatcher = new fts_fuzzy_match(fuzzy_match, "fts", "ForrestTheWoods",
 //                                              function(results) { console.log(results); });
 //      asyncMatcher.start();
 //
@@ -200,7 +200,7 @@ function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
 
             var str = dataSet[dataIndex];
             var result = matchFn(pattern, str);
-            
+
             // A little gross because fuzzy_match_simple and fuzzy_match return different things
             if (matchFn == fuzzy_match_simple && result == true)
                 results.push(str);
@@ -219,7 +219,7 @@ function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
     };
 
     // Must be called to start matching.
-    // I tried to make asyncMatcher auto-start via "var resumeTimeout = step();" 
+    // I tried to make asyncMatcher auto-start via "var resumeTimeout = step();"
     // However setTimout behaving in an unexpected fashion as onComplete insisted on triggering twice.
     this.start = function() {
         step();

@@ -13,21 +13,21 @@ const UNMATCHED_LETTER_PENALTY = -1;
  * @param {*} str string
  */
 function fuzzyMatchSimple(pattern, str) {
-  let patternIdx = 0;
-  let strIdx = 0;
-  let patternLength = pattern.length;
-  let strLength = str.length;
+    let patternIdx = 0;
+    let strIdx = 0;
+    let patternLength = pattern.length;
+    let strLength = str.length;
 
-  while (patternIdx != patternLength && strIdx != strLength) {
-    const patternChar = pattern.charAt(patternIdx).toLowerCase();
-    const strChar = str.charAt(strIdx).toLowerCase();
-    if (patternChar == strChar) ++patternIdx;
-    ++strIdx;
-  }
+    while (patternIdx != patternLength && strIdx != strLength) {
+        const patternChar = pattern.charAt(patternIdx).toLowerCase();
+        const strChar = str.charAt(strIdx).toLowerCase();
+        if (patternChar == strChar) ++patternIdx;
+        ++strIdx;
+    }
 
-  return patternLength != 0 && strLength != 0 && patternIdx == patternLength
-    ? true
-    : false;
+    return patternLength != 0 && strLength != 0 && patternIdx == patternLength
+        ? true
+        : false;
 }
 
 /**
@@ -38,162 +38,162 @@ function fuzzyMatchSimple(pattern, str) {
  *                                  found or not and a search score
  */
 function fuzzyMatch(pattern, str) {
-  const recursionCount = 0;
-  const recursionLimit = 10;
-  const matches = [];
-  const maxMatches = 256;
+    const recursionCount = 0;
+    const recursionLimit = 10;
+    const matches = [];
+    const maxMatches = 256;
 
-  return fuzzyMatchRecursive(
-    pattern,
-    str,
-    0 /* patternCurIndex */,
-    0 /* strCurrIndex */,
-    null /* srcMatces */,
-    matches,
-    maxMatches,
-    0 /* nextMatch */,
-    recursionCount,
-    recursionLimit
-  );
+    return fuzzyMatchRecursive(
+        pattern,
+        str,
+        0 /* patternCurIndex */,
+        0 /* strCurrIndex */,
+        null /* srcMatces */,
+        matches,
+        maxMatches,
+        0 /* nextMatch */,
+        recursionCount,
+        recursionLimit
+    );
 }
 
 function fuzzyMatchRecursive(
-  pattern,
-  str,
-  patternCurIndex,
-  strCurrIndex,
-  srcMatces,
-  matches,
-  maxMatches,
-  nextMatch,
-  recursionCount,
-  recursionLimit
+    pattern,
+    str,
+    patternCurIndex,
+    strCurrIndex,
+    srcMatces,
+    matches,
+    maxMatches,
+    nextMatch,
+    recursionCount,
+    recursionLimit
 ) {
-  let outScore = 0;
+    let outScore = 0;
 
-  // Return if recursion limit is reached.
-  if (++recursionCount >= recursionLimit) {
-    return [false, outScore];
-  }
-
-  // Return if we reached ends of strings.
-  if (patternCurIndex === pattern.length || strCurrIndex === str.length) {
-    return [false, outScore];
-  }
-
-  // Recursion params
-  let recursiveMatch = false;
-  let bestRecursiveMatches = [];
-  let bestRecursiveScore = 0;
-
-  // Loop through pattern and str looking for a match.
-  let firstMatch = true;
-  while (patternCurIndex < pattern.length && strCurrIndex < str.length) {
-    // Match found.
-    if (
-      pattern[patternCurIndex].toLowerCase() === str[strCurrIndex].toLowerCase()
-    ) {
-      if (nextMatch >= maxMatches) {
+    // Return if recursion limit is reached.
+    if (++recursionCount >= recursionLimit) {
         return [false, outScore];
-      }
-
-      if (firstMatch && srcMatces) {
-        matches = [...srcMatces];
-        firstMatch = false;
-      }
-
-      recursiveMatches = [];
-      const [matched, recursiveScore] = fuzzyMatchRecursive(
-        pattern,
-        str,
-        patternCurIndex,
-        strCurrIndex + 1,
-        matches,
-        recursiveMatches,
-        maxMatches,
-        nextMatch,
-        recursionCount,
-        recursionLimit
-      );
-
-      if (matched) {
-        // Pick best recursive score.
-        if (!recursiveMatch || recursiveScore > bestRecursiveScore) {
-          bestRecursiveMatches = [...recursiveMatches];
-          bestRecursiveScore = recursiveScore;
-        }
-        recursiveMatch = true;
-      }
-
-      matches[nextMatch++] = strCurrIndex;
-      ++patternCurIndex;
     }
-    ++strCurrIndex;
-  }
 
-  const matched = patternCurIndex === pattern.length;
+    // Return if we reached ends of strings.
+    if (patternCurIndex === pattern.length || strCurrIndex === str.length) {
+        return [false, outScore];
+    }
 
-  if (matched) {
-    outScore = 100;
+    // Recursion params
+    let recursiveMatch = false;
+    let bestRecursiveMatches = [];
+    let bestRecursiveScore = 0;
 
-    // Apply leading letter penalty
-    let penalty = LEADING_LETTER_PENALTY * matches[0];
-    penalty =
-      penalty < MAX_LEADING_LETTER_PENALTY
-        ? MAX_LEADING_LETTER_PENALTY
-        : penalty;
-    outScore += penalty;
-
-    //Apply unmatched penalty
-    const unmatched = str.length - nextMatch;
-    outScore += UNMATCHED_LETTER_PENALTY * unmatched;
-
-    // Apply ordering bonuses
-    for (let i = 0; i < nextMatch; i++) {
-      const currIdx = matches[i];
-
-      if (i > 0) {
-        const prevIdx = matches[i - 1];
-        if (currIdx == prevIdx + 1) {
-          outScore += SEQUENTIAL_BONUS;
-        }
-      }
-
-      // Check for bonuses based on neighbor character value.
-      if (currIdx > 0) {
-        // Camel case
-        const neighbor = str[currIdx - 1];
-        const curr = str[currIdx];
+    // Loop through pattern and str looking for a match.
+    let firstMatch = true;
+    while (patternCurIndex < pattern.length && strCurrIndex < str.length) {
+        // Match found.
         if (
-          neighbor === neighbor.toLowerCase() &&
-          curr === curr.toUpperCase()
+            pattern[patternCurIndex].toLowerCase() === str[strCurrIndex].toLowerCase()
         ) {
-          outScore += CAMEL_BONUS;
+            if (nextMatch >= maxMatches) {
+                return [false, outScore];
+            }
+
+            if (firstMatch && srcMatces) {
+                matches = [...srcMatces];
+                firstMatch = false;
+            }
+
+            recursiveMatches = [];
+            const [matched, recursiveScore] = fuzzyMatchRecursive(
+                pattern,
+                str,
+                patternCurIndex,
+                strCurrIndex + 1,
+                matches,
+                recursiveMatches,
+                maxMatches,
+                nextMatch,
+                recursionCount,
+                recursionLimit
+            );
+
+            if (matched) {
+                // Pick best recursive score.
+                if (!recursiveMatch || recursiveScore > bestRecursiveScore) {
+                    bestRecursiveMatches = [...recursiveMatches];
+                    bestRecursiveScore = recursiveScore;
+                }
+                recursiveMatch = true;
+            }
+
+            matches[nextMatch++] = strCurrIndex;
+            ++patternCurIndex;
         }
-        const isNeighbourSeparator = neighbor == "_" || neighbor == " ";
-        if (isNeighbourSeparator) {
-          outScore += SEPARATOR_BONUS;
-        }
-      } else {
-        // First letter
-        outScore += FIRST_LETTER_BONUS;
-      }
+        ++strCurrIndex;
     }
 
-    // Return best result
-    if (recursiveMatch && (!matched || bestRecursiveScore > outScore)) {
-      // Recursive score is better than "this"
-      matches = [...bestRecursiveMatches];
-      outScore = bestRecursiveScore;
-      return [true, outScore];
-    } else if (matched) {
-      // "this" score is better than recursive
-      return [true, outScore];
-    } else {
-      return [false, outScore];
+    const matched = patternCurIndex === pattern.length;
+
+    if (matched) {
+        outScore = 100;
+
+        // Apply leading letter penalty
+        let penalty = LEADING_LETTER_PENALTY * matches[0];
+        penalty =
+            penalty < MAX_LEADING_LETTER_PENALTY
+                ? MAX_LEADING_LETTER_PENALTY
+                : penalty;
+        outScore += penalty;
+
+        //Apply unmatched penalty
+        const unmatched = str.length - nextMatch;
+        outScore += UNMATCHED_LETTER_PENALTY * unmatched;
+
+        // Apply ordering bonuses
+        for (let i = 0; i < nextMatch; i++) {
+            const currIdx = matches[i];
+
+            if (i > 0) {
+                const prevIdx = matches[i - 1];
+                if (currIdx == prevIdx + 1) {
+                    outScore += SEQUENTIAL_BONUS;
+                }
+            }
+
+            // Check for bonuses based on neighbor character value.
+            if (currIdx > 0) {
+                // Camel case
+                const neighbor = str[currIdx - 1];
+                const curr = str[currIdx];
+                if (
+                    neighbor === neighbor.toLowerCase() &&
+                    curr === curr.toUpperCase()
+                ) {
+                    outScore += CAMEL_BONUS;
+                }
+                const isNeighbourSeparator = neighbor == "_" || neighbor == " ";
+                if (isNeighbourSeparator) {
+                    outScore += SEPARATOR_BONUS;
+                }
+            } else {
+                // First letter
+                outScore += FIRST_LETTER_BONUS;
+            }
+        }
+
+        // Return best result
+        if (recursiveMatch && (!matched || bestRecursiveScore > outScore)) {
+            // Recursive score is better than "this"
+            matches = [...bestRecursiveMatches];
+            outScore = bestRecursiveScore;
+            return [true, outScore];
+        } else if (matched) {
+            // "this" score is better than recursive
+            return [true, outScore];
+        } else {
+            return [false, outScore];
+        }
     }
-  }
-  return [false, outScore];
+    return [false, outScore];
 }
 
 /**
@@ -211,54 +211,54 @@ function fuzzyMatchRecursive(
  * @param {*} onComplete function     Callback function which is called after search is complete.
  */
 function ftsFuzzyMatchAsync(matchFn, pattern, dataSet, onComplete) {
-  const ITEMS_PER_CHECK = 1000; // performance.now can be very slow depending on platform
-  const results = [];
-  const max_ms_per_frame = 1000.0 / 30.0; // 30FPS
-  let dataIndex = 0;
-  let resumeTimeout = null;
+    const ITEMS_PER_CHECK = 1000; // performance.now can be very slow depending on platform
+    const results = [];
+    const max_ms_per_frame = 1000.0 / 30.0; // 30FPS
+    let dataIndex = 0;
+    let resumeTimeout = null;
 
-  // Perform matches for at most max_ms
-  function step() {
-    clearTimeout(resumeTimeout);
-    resumeTimeout = null;
+    // Perform matches for at most max_ms
+    function step() {
+        clearTimeout(resumeTimeout);
+        resumeTimeout = null;
 
-    var stopTime = performance.now() + max_ms_per_frame;
+        var stopTime = performance.now() + max_ms_per_frame;
 
-    for (; dataIndex < dataSet.length; ++dataIndex) {
-      if (dataIndex % ITEMS_PER_CHECK == 0) {
-        if (performance.now() > stopTime) {
-          resumeTimeout = setTimeout(step, 1);
-          return;
+        for (; dataIndex < dataSet.length; ++dataIndex) {
+            if (dataIndex % ITEMS_PER_CHECK == 0) {
+                if (performance.now() > stopTime) {
+                    resumeTimeout = setTimeout(step, 1);
+                    return;
+                }
+            }
+
+            var str = dataSet[dataIndex];
+            var result = matchFn(pattern, str);
+
+            // A little gross because fuzzy_match_simple and fuzzy_match return different things
+            if (matchFn == fuzzyMatchSimple && result == true) results.push(str);
+            else if (matchFn == fuzzyMatch && result[0] == true) results.push(result);
         }
-      }
 
-      var str = dataSet[dataIndex];
-      var result = matchFn(pattern, str);
-
-      // A little gross because fuzzy_match_simple and fuzzy_match return different things
-      if (matchFn == fuzzyMatchSimple && result == true) results.push(str);
-      else if (matchFn == fuzzyMatch && result[0] == true) results.push(result);
+        onComplete(results);
+        return null;
     }
 
-    onComplete(results);
-    return null;
-  }
+    // Abort current process
+    this.cancel = function() {
+        if (resumeTimeout !== null) clearTimeout(resumeTimeout);
+    };
 
-  // Abort current process
-  this.cancel = function() {
-    if (resumeTimeout !== null) clearTimeout(resumeTimeout);
-  };
+    // Must be called to start matching.
+    // I tried to make asyncMatcher auto-start via "var resumeTimeout = step();"
+    // However setTimout behaving in an unexpected fashion as onComplete insisted on triggering twice.
+    this.start = function() {
+        step();
+    };
 
-  // Must be called to start matching.
-  // I tried to make asyncMatcher auto-start via "var resumeTimeout = step();"
-  // However setTimout behaving in an unexpected fashion as onComplete insisted on triggering twice.
-  this.start = function() {
-    step();
-  };
-
-  // Process full list. Blocks script execution until complete
-  this.flush = function() {
-    max_ms_per_frame = Infinity;
-    step();
-  };
+    // Process full list. Blocks script execution until complete
+    this.flush = function() {
+        max_ms_per_frame = Infinity;
+        step();
+    };
 }

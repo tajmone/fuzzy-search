@@ -12,9 +12,9 @@
 #include <ctype.h> // ::tolower, ::toupper
 
 namespace fts {
-    
+
     // Returns true if each character in pattern is found sequentially within str
-    static bool fuzzy_match(char const * pattern, char const * str) 
+    static bool fuzzy_match(char const * pattern, char const * str)
     {
         while (*pattern != '\0' && *str != '\0')  {
             if (tolower(*pattern) == tolower(*str))
@@ -26,15 +26,15 @@ namespace fts {
     }
 
     // Returns true if each character in pattern is found sequentially within str
-    // iff found then outScore is also set. Score value has no intrinsic meaning. Range varies with pattern. 
+    // iff found then outScore is also set. Score value has no intrinsic meaning. Range varies with pattern.
     // Can only compare scores with same search pattern.
-    static bool fuzzy_match(char const * pattern, char const * str, int & outScore) 
+    static bool fuzzy_match(char const * pattern, char const * str, int & outScore)
     {
         // Score consts
         const int adjacency_bonus = 5;              // bonus for adjacent matches
         const int separator_bonus = 10;             // bonus if match occurs after a separator
         const int camel_bonus = 10;                 // bonus if match is uppercase and prev is lower
-        
+
         const int leading_letter_penalty = -3;      // penalty applied for every letter in str before the first match
         const int max_leading_letter_penalty = -9;  // maximum penalty for leading letters
         const int unmatched_letter_penalty = -1;    // penalty for every letter that doesn't matter
@@ -53,7 +53,7 @@ namespace fts {
         int bestLetterScore = 0;
 
         // Loop over strings
-        while (*strIter != '\0') 
+        while (*strIter != '\0')
         {
             const char patternLetter = *patternIter;
             const char strLetter = *strIter;
@@ -64,7 +64,7 @@ namespace fts {
             bool advanced = nextMatch && bestLetter;
             bool patternRepeat = bestLetter && patternLetter != '\0' && tolower(*bestLetter) == tolower(patternLetter);
 
-            if (advanced || patternRepeat) 
+            if (advanced || patternRepeat)
             {
                 score += bestLetterScore;
                 bestLetter = NULL;
@@ -85,7 +85,7 @@ namespace fts {
                         penalty = max_leading_letter_penalty;
 
                     score += penalty;
-                } 
+                }
 
                 // Apply bonus for consecutive bonuses
                 if (prevMatched)
@@ -104,7 +104,7 @@ namespace fts {
                     ++patternIter;
 
                 // Update best letter in str which may be for a "next" letter or a rematch
-                if (newScore >= bestLetterScore) 
+                if (newScore >= bestLetterScore)
                 {
                     // Apply penalty for now skipped letter
                     if (bestLetter != NULL)
@@ -130,7 +130,7 @@ namespace fts {
         }
 
         // Apply score for last match
-        if (bestLetter) 
+        if (bestLetter)
             score += bestLetterScore;
 
         // Did not match full pattern
