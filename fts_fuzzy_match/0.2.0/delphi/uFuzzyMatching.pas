@@ -39,7 +39,7 @@ const
   separator_bonus: Integer = 30;             // bonus if match occurs after a separator
   camel_bonus: Integer = 30;                 // bonus if match is uppercase and prev is lower
   first_letter_bonus: Integer = 15;          // bonus if the first letter is matched
-  first_letter_count: Integer = 1;           // How many letters count as 'first'. Try set to 2, to skip the first, single letter prefix
+  first_letter_count: Integer = 1;           // How many letters count as 'first'. Try setting to 2 to skip the first, single letter prefix
 
   leading_letter_penalty: Integer = -5;      // penalty applied for every letter in str before the first match
   max_leading_letter_penalty: Integer = -15; // maximum penalty for leading letters
