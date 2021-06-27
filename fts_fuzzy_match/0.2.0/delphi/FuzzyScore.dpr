@@ -30,7 +30,7 @@ begin
       WriteLn(Line);
       MatchStr := StringOfChar(' ', Length(Line));
       for p := 0 to Length(Pattern) - 1 do
-        MatchStr[Matches[p]] := Line[Matches[p]];
+        MatchStr[Matches[p] + 1] := Line[Matches[p] + 1];
       WriteLn(TrimRight(MatchStr), '  score: ', Score);
     end else
       WriteLn('No match for ', Line);
