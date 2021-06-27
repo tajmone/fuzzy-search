@@ -12,9 +12,11 @@ unit uFuzzyMatching;
 
 // Adapted slightly for own use, especially:
 // - Calculation corrected for double byte chars
-// - Added a match index offset of 1 to match Delphi/Pascal string indexes
 
 interface
+
+uses
+  System.Character;
 
 type
   TMatch = Byte;
@@ -37,12 +39,11 @@ const
   separator_bonus: Integer = 30;             // bonus if match occurs after a separator
   camel_bonus: Integer = 30;                 // bonus if match is uppercase and prev is lower
   first_letter_bonus: Integer = 15;          // bonus if the first letter is matched
-  first_letter_count: Integer = 2;           // How many letters count as 'first'. Set to 2, to skip the first, single letter prefix
+  first_letter_count: Integer = 1;           // How many letters count as 'first'. Try set to 2, to skip the first, single letter prefix
 
   leading_letter_penalty: Integer = -5;      // penalty applied for every letter in str before the first match
   max_leading_letter_penalty: Integer = -15; // maximum penalty for leading letters
   unmatched_letter_penalty: Integer = -1;    // penalty for every letter that doesn't match
-  pascal_index = 1;                          // effectively a number to add to the match. Set to 1 to reflect delphi string indexes
 var
   RecursiveMatch: Boolean;
   BestRecursiveMatches: TMatches;
@@ -58,8 +59,10 @@ var
   prevIdx: Integer;
   Neighbor: Char;
   Curr: Char;
+
 begin
   OutScore := 0;
+  RecursiveMatches:= Default(TMatches);
 
   Inc(RecursionCount);
   if RecursionCount >= RecursionLimit then
@@ -96,7 +99,7 @@ begin
         RecursiveMatch := True;
       end;
 
-      Matches[NextMatch] := Byte((Integer(Str) - Integer(StrBegin)) div SizeOf(Char)) + pascal_index;
+      Matches[NextMatch] := Byte((Integer(Str) - Integer(StrBegin)) div SizeOf(Char));
       Inc(NextMatch);
       Inc(Pattern);
     end;
@@ -107,8 +110,6 @@ begin
 
   if Matched then
   begin
-    while Str^ <> #0 do
-      Inc(Str);
 
     Penalty := leading_letter_penalty * matches[0];
     if Penalty < max_leading_letter_penalty then
@@ -116,7 +117,7 @@ begin
 
     Inc(OutScore, Penalty);
 
-    Unmatched := Integer(Str - StrBegin) - NextMatch;
+    Unmatched := Length(StrBegin) - NextMatch;
     Inc(OutScore, unmatched_letter_penalty * unmatched);
 
     for i := 0 to NextMatch - 1 do
@@ -136,10 +137,13 @@ begin
       begin
         Neighbor := StrBegin[currIdx - 1];
         Curr := StrBegin[Curridx];
-        if (NeighBor <> UpCase(Neighbor)) and (Curr = UpCase(Curr)) then
+        if NeighBor.IsLetter and Curr.IsLetter and
+           (NeighBor <> Neighbor.ToUpper)      and
+           (Curr      = Curr.ToUpper)
+        then
           Inc(OutScore, camel_bonus);
 
-        if (Neighbor = '.' ) or (Neighbor = '_') or (Neighbor = ' ') then
+        if Neighbor in ['.','_',' '] then
           Inc(OutScore, separator_bonus);
       end;
 
