@@ -10,13 +10,10 @@ unit uFuzzyMatching;
 // Original source: https://github.com/forrestthewoods/lib_fts/blob/master/code/fts_fuzzy_match.h
 // Blog: https://www.forrestthewoods.com/blog/reverse_engineering_sublime_texts_fuzzy_match/
 
-// Adapted slightly for own use, especially:
-// - Calculation corrected for double byte chars
-
 interface
 
 uses
-  System.Character;
+  System.SysUtils, System.Character;
 
 type
   TMatch = Byte;
@@ -32,7 +29,7 @@ implementation
 function FuzzyMatchRecursive(
   Pattern: PChar; Str: PChar; out OutScore: Integer;
   const StrBegin: PChar; const SrcMatches: PMatches; const Matches: PMatches; const MaxMatches: Integer; NextMatch: Integer;
-  RecursionCount: Integer; const RecursionLimit: Integer): Boolean;
+  RecursionCount: Integer; const RecursionLimit: Integer; MatchId: integer): Boolean;
 
 const
   sequential_bonus: Integer = 15;            // bonus for adjacent matches
@@ -61,7 +58,7 @@ var
   Curr: Char;
 
 begin
-  OutScore := 0;
+  OutScore := 100;
   RecursiveMatches:= Default(TMatches);
 
   Inc(RecursionCount);
@@ -78,7 +75,7 @@ begin
 
   while (Pattern^ <> #0) and (Str^ <> #0) do
   begin
-    if UpCase(Pattern^) = UpCase(Str^) then
+    if Pattern^ = Str^ then
     begin
       if NextMatch >= MaxMatches then
         Exit(False);
@@ -89,7 +86,7 @@ begin
         FirstMatch := False;
       end;
 
-      if FuzzyMatchRecursive(Pattern, Str+1, RecursiveScore, StrBegin, Matches, @RecursiveMatches[0], MaxMatches, NextMatch, RecursionCount, RecursionLimit) then
+      if FuzzyMatchRecursive(Pattern, Str+1, RecursiveScore, StrBegin, Matches, @RecursiveMatches[0], MaxMatches, NextMatch, RecursionCount, RecursionLimit, MatchId+1) then
       begin
         if (not RecursiveMatch) or (RecursiveScore > BestRecursiveScore) then
         begin
@@ -99,11 +96,12 @@ begin
         RecursiveMatch := True;
       end;
 
-      Matches[NextMatch] := Byte((Integer(Str) - Integer(StrBegin)) div SizeOf(Char));
+      Matches[NextMatch] := MatchId;
       Inc(NextMatch);
       Inc(Pattern);
     end;
     Inc(Str);
+    Inc(MatchId);
   end;
 
   Matched := Pattern^ = #0;
@@ -143,7 +141,7 @@ begin
         then
           Inc(OutScore, camel_bonus);
 
-        if Neighbor in ['.','_',' '] then
+        if Neighbor in ['.','_',' ','\'] then
           Inc(OutScore, separator_bonus);
       end;
 
@@ -178,10 +176,14 @@ end;
 function FuzzyMatch(const Pattern: String; const Str: String; out Score: Integer; var Matches: TMatches): Boolean;
 var
   RecursionCount, RecursionLimit: Integer;
+  PatternUC, StrUC: string;
 begin
   RecursionCount := 0;
   RecursionLimit := 10;
-  Result := FuzzyMatchRecursive(PChar(Pattern), PChar(Str), Score, PChar(Str), nil, @Matches[0], Length(Matches), 0, recursionCount, recursionLimit);
+  PatternUC := UpperCase(Pattern);
+  StrUC     := UpperCase(Str);
+
+  Result := FuzzyMatchRecursive(PChar(PatternUC), PChar(StrUC), Score, PChar(Str), nil, @Matches[0], Length(Matches), 0, recursionCount, recursionLimit, 0);
 end;
 
 end.
