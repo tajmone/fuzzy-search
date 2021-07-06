@@ -87,4 +87,15 @@ block_comment_end = */
 [dataset/*.js]
 insert_final_newline = false
 
+
+## PureBasic Files
+##################
+[*.{pb,pbi,pbf}]
+indent_style = space
+indent_size = 2
+end_of_line = unset
+charset = utf-8-bom
+trim_trailing_whitespace = true
+insert_final_newline = true
+
 # EOF #

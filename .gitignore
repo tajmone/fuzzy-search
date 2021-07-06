@@ -3,6 +3,13 @@
 #  https://github.com/tajmone/fuzzy-search  #
 #############################################
 
+## PureBasic
+############
+*.pb.cfg
+*.pbi.cfg
+*.pbp
+project.cfg
+
 ## ===============
 ## Misc Work Files
 ## ===============

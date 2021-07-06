@@ -45,6 +45,16 @@ COPYING      text
 LICENSE      text
 
 
+## PureBasic Files
+##################
+[attr]PureBasic text linguist-language=PureBasic
+*.cfg   text linguist-generated=true
+*.pb    PureBasic
+*.pbf   PureBasic
+*.pbi   PureBasic
+*.pbp   linguist-language=XML linguist-generated=true
+
+
 ## Exceptions
 #############
 /dataset/*.txt         text eol=lf  linguist-vendored
