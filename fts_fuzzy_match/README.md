@@ -111,7 +111,7 @@ The following table lists all the implementations available in this repository, 
 | [C#][2cs]                 | [0.2.0][fm2 cs]  | _n/a_              | [@theor]           | [PR #13]                 | CC0           |
 | [C++][1cpp]               | [0.1.0][fm1 cpp] | :dart:             | [Forrest Smith]    | [GitHub][fm1cpp cb72472] | public domain |
 | [C++][2cpp]               | [0.2.0][fm2 cpp] | :dart:             | [Forrest Smith]    | [GitHub][fm2cpp d541eb4] | public domain |
-| [Delphi/FreePascal][2pas] | [0.2.0][fm2 pas] | _n/a_              | [j.visser]         | [Gist][fm pas]           | CC0           |
+| [Delphi/FreePascal][2pas] | [0.2.0][fm2 pas] | :heavy_check_mark: | [j.visser]         | [Gist][fm pas]           | CC0           |
 | [Elixir][2ex]             | [0.2.0][fm2 ex]  | _n/a_              | [@WolfDan]         | [Gist][fm ex]            | MIT           |
 | [F#][1fsx]                | [0.1.0][fm1 fs]  | _n/a_              | [Xavier Zwirtz]    | [GitHub][fm f#]          | MIT           |
 | [JavaScript][1js]         | [0.1.0][fm1 js]  | :heavy_check_mark: | [Forrest Smith]    | [GitHub][fm1js 08a4bb1]  | public domain |
