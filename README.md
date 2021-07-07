@@ -50,7 +50,7 @@ The goal of this project is to gather resources and sample implementations of fu
 I chose to build the project around [Forrest Smith]'s __[fts_fuzzy_match]__ and his article because they offer a good starting point to understand how fuzzy search algorithms work.
 Both his article and the code are easy to understand and written for educational purposes, making accessible to anyone what usually belongs to the domain of academia initiates.
 
-Also, because Forrest generously released his __[fts_fuzzy_match]__ code under public domain, third parties have ported the code to various other languages, which further simplifies studying the code and implementing it in new languages — and turning __[fts_fuzzy_match]__into the Rosetta Stone of fuzzy search.
+Also, because Forrest generously released his __[fts_fuzzy_match]__ code under public domain, third parties have ported the code to various other languages, which further simplifies studying the code and implementing it in new languages — and turning __[fts_fuzzy_match]__ into the Rosetta Stone of fuzzy search.
 
 I decided to gather into a single repository the various implementations of __fts_fuzzy_match__ available in different languages, and separating in different folders implementations of v0.1.0 and v0.2.0 of the algorithm — the latter being an improved version, based on the feedback from Sublime Text author Jon Skinner to the _[Reverse Engineering Sublime Text’s Fuzzy Match]_ article.
 

@@ -92,7 +92,7 @@ insert_final_newline = false
 ##################
 [*.{pb,pbi,pbf}]
 indent_style = space
-indent_size = 2
+indent_size = unset
 end_of_line = unset
 charset = utf-8-bom
 trim_trailing_whitespace = true
