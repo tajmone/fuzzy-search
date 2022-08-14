@@ -25,6 +25,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
 # Directory Contents
 
 - [`/0.1.0/`](./0.1.0/) — original algorithm based on the 2016 article.
+    + [`/c/`][1c] — C version by [Philip Jones], with code optimizations.
     + [`/cpp/`][1cpp] — C++ version by [Forrest Smith].
     + [`/csharp/`][1cs] — C# port by [Collin Dillinger].
     + [`/fsharp/`][1fsx] — F# port by [Xavier Zwirtz].
@@ -35,6 +36,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/python/`][1py] — Python port by [Matt Menzenski].
     + [`expected_results.txt`][expect1] — Test data for validating v0.1.0 implementations.
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
+    + [`/c/`][2c] — C version by [Philip Jones], with code optimizations.
     + [`/cpp/`][2cpp] — C++ version by [Forrest Smith].
     + [`/csharp/`][2cs] — C# port by [@theor].
     + [`/delphi/`][2ex] — Delphi/FreePascal port by [j.visser].
@@ -109,6 +111,8 @@ The following table lists all the implementations available in this repository, 
 
 | language                  | ver              | test               | author               | src link                 | license       |
 | :------------------------ | :--------------: | :----------------: | :-----------------   | :----------------------- | :------------ |
+| [C][1c]                   | [0.1.0][fm1 c]   | :heavy_check_mark: | [Philip Jones]       | [PR #23]                 | public domain |
+| [C][2c]                   | [0.2.0][fm2 c]   | :heavy_check_mark: | [Philip Jones]       | [PR #24]                 | MIT           |
 | [C#][1cs]                 | [0.1.0][fm1 cs]  | _n/a_              | [Collin Dillinger]   | [Gist][fm c#]            | public domain |
 | [C#][2cs]                 | [0.2.0][fm2 cs]  | _n/a_              | [@theor]             | [PR #13]                 | CC0 1.0       |
 | [C++][1cpp]               | [0.1.0][fm1 cpp] | :dart:             | [Forrest Smith]      | [GitHub][fm1cpp cb72472] | public domain |
@@ -193,6 +197,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [jskinner]: https://www.reddit.com/user/jskinner/ "View Jon Skinner Reddit profile"
 [Matt Menzenski]: https://github.com/menzenski "View Matt Menzenski's GitHub profile"
 [Michael Bikovitsky]: https://github.com/mbikovitsky "View Michael Bikovitsky's GitHub profile"
+[Philip Jones]: https://github.com/philj56 "View Philip Jones's GitHub profile"
 [Sahil Muthoo]: https://github.com/sahilm "View Sahil Muthoo's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 [Xavier Zwirtz]: https://github.com/xavierzwirtz "View Xavier Zwirtz's GitHub profile"
@@ -205,6 +210,8 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [PR #10]: https://github.com/tajmone/fuzzy-search/pull/10 "View original pull request"
 [PR #13]: https://github.com/tajmone/fuzzy-search/pull/13 "View original pull request"
 [PR #20]: https://github.com/tajmone/fuzzy-search/pull/20 "View original pull request"
+[PR #23]: https://github.com/tajmone/fuzzy-search/pull/23 "View original pull request"
+[PR #24]: https://github.com/tajmone/fuzzy-search/pull/24 "View original pull request"
 
 <!-- upstream sources -->
 
@@ -232,6 +239,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 
 <!-- project folders -->
 
+[1c]:   ./0.1.0/c/         "Navigate to C algorithm v0.1.0"
 [1cpp]: ./0.1.0/cpp/       "Navigate to C++ algorithm v0.1.0"
 [1cs]:  ./0.1.0/csharp/    "Navigate to C# algorithm v0.1.0"
 [1fsx]: ./0.1.0/fsharp/    "Navigate to F# algorithm v0.1.0"
@@ -240,6 +248,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [1pb]:  ./0.1.0/purebasic/ "Navigate to PureBasic algorithm v0.1.0"
 [1php]: ./0.1.0/php/       "Navigate to PHP algorithm v0.1.0"
 [1py]:  ./0.1.0/python/    "Navigate to Python algorithm v0.1.0"
+[2c]:   ./0.2.0/c/         "Navigate to C algorithm v0.2.0"
 [2cpp]: ./0.2.0/cpp/       "Navigate to C++ algorithm v0.2.0"
 [2cs]:  ./0.2.0/csharp/    "Navigate to C# algorithm v0.2.0"
 [2ex]:  ./0.2.0/elixir/    "Navigate to Elixir algorithm v0.2.0"
@@ -254,6 +263,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [PORTING.md]: ./PORTING.md "Porting and testing guidelines"
 [fm md]: ./fuzzy_match.md "View the original documentation of fts_fuzzy_match"
 
+[fm1 c]:   ./0.1.0/c/fts_fuzzy_match.c          "C implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 cpp]: ./0.1.0/cpp/fts_fuzzy_match.h        "C++ implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 cs]:  ./0.1.0/csharp/FuzzyMatch.cs         "C# implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 fs]:  ./0.1.0/fsharp/fts_fuzzy_match.fsx   "F# implementation of 'fts_fuzzy_match' v0.1.0"
@@ -262,6 +272,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [fm1 pb]:  ./0.1.0/purebasic/mod_FuzzyMatch.pbi "PureBasic implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 php]: ./0.1.0/php/fts_fuzzy_match.php      "PHP implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 py]:  ./0.1.0/python/fts_fuzzy_match.py    "Python implementation of 'fts_fuzzy_match' v0.1.0"
+[fm2 c]:   ./0.2.0/c/fts_fuzzy_match.c          "C implementation of 'fts_fuzzy_match' v0.2.0"
 [fm2 cpp]: ./0.2.0/cpp/fts_fuzzy_match.h        "C++ implementation of 'fts_fuzzy_match' v0.1.0"
 [fm2 cs]:  ./0.2.0/csharp/FuzzyMatch.cs         "C# implementation of 'fts_fuzzy_match' v0.2.0"
 [fm2 ex]:  ./0.2.0/elixir/fts_fuzzy_match.ex    "Elixir implementation of 'fts_fuzzy_match' v0.2.0"

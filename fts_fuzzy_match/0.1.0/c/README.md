@@ -11,7 +11,7 @@
 
 To run the tests, open a shell and run:
 
-	./test.sh
+    ./test.sh
 
 ## License
 
