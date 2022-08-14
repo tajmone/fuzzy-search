@@ -68,10 +68,29 @@ insert_final_newline = false
 [{test_results,expected_results}.txt]
 end_of_line = lf
 
+######################################################
+#              IMPLEMENTATION LANGUAGES              #
+######################################################
+
+
+## C Source Files
+#################
+[**/c/*.{c,h}]
+indent_style = tab
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+; C-style doc comments:
+block_comment_start = /*
+block_comment = *
+block_comment_end = */
+
 
 ## C++/JS Source Files
 ######################
-[*.{cpp,h,js}]
+[**/{cpp,js}/*.{cpp,h,js}]
 indent_style = space
 indent_size = 4
 end_of_line = unset
