@@ -147,9 +147,11 @@ For guidelines on how to port and test the algorithms to a new language, see the
 
 Here are some links to adaptations of Forrest's algorithm.
 
-| language | version |     author     |        link        | license |
-|----------|---------|----------------|--------------------|---------|
-| Go       | 0.1.0   | [Sahil Muthoo] | [GitHub][fuzzy go] | MIT     |
+| language | version |      author     |                  link                  |    license    |                  notes                   |
+|----------|---------|-----------------|----------------------------------------|---------------|------------------------------------------|
+| C++      | 0.2.0   | [Martin Budden] | [GitHub » SuperSlicer][fm SuperSlicer] | public domain | [See rework notes][fm SuperSlicer notes] |
+| C++ Qt   | 0.2.0   | [Waqar Ahmed]   | [GitHub » Kate][kfts_fuzzy_match]      | LGPLv2+       | No longer used in Kate now               |
+| Go       | 0.1.0   | [Sahil Muthoo]  | [GitHub » fuzzy][fuzzy go]             | MIT           |                                          |
 
 Due to the presence of custom tweaks, they diverge from the original algorithm and don't qualify as __fts_fuzzy_match__ ports (although they might still closely resemble it).
 
@@ -195,13 +197,14 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [Forrest Smith]: https://github.com/forrestthewoods "View Forrest Smith's GitHub profile"
 [j.visser]: https://github.com/GolezTrol "View j.visser's GitHub profile"
 [jskinner]: https://www.reddit.com/user/jskinner/ "View Jon Skinner Reddit profile"
+[Martin Budden]: https://github.com/martinbudden "View Martin Budden's GitHub profile"
 [Matt Menzenski]: https://github.com/menzenski "View Matt Menzenski's GitHub profile"
 [Michael Bikovitsky]: https://github.com/mbikovitsky "View Michael Bikovitsky's GitHub profile"
 [Philip Jones]: https://github.com/philj56 "View Philip Jones's GitHub profile"
 [Sahil Muthoo]: https://github.com/sahilm "View Sahil Muthoo's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
+[Waqar Ahmed]: https://github.com/Waqar144 "View Waqar Ahmed's GitHub profile"
 [Xavier Zwirtz]: https://github.com/xavierzwirtz "View Xavier Zwirtz's GitHub profile"
-
 
 <!-- FTS Fuzzy Match  -------------------------------------------------------->
 
@@ -231,7 +234,10 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 
 <!-- upstream derivatives -->
 
+[fm SuperSlicer]: https://github.com/martinbudden/SuperSlicer/blob/master/src/slic3r/GUI/fts_fuzzy_match.h "View the adaptation of fts_fuzzy_match v0.2.0 by Martin Budden"
+[fm SuperSlicer notes]: https://github.com/martinbudden/SuperSlicer/commit/07ab5c31e6035799781fa7152bf36f8c80143927 "See the adaptation notes by Martin Budden"
 [fuzzy go]: https://github.com/sahilm/fuzzy/blob/master/fuzzy.go "View the Go adaptation of fts_fuzzy_match v0.1.0, by Sahil Muthoo"
+[kfts_fuzzy_match]: https://github.com/KDE/kate/blob/4cdc31d90dd5adeb1ab7647fe2527a178d620440/kate/kfts_fuzzy_match.h "View the C++/Qt adaptation of fts_fuzzy_match v0.2.0 for Kate (no longer used)"
 
 <!-- project links ----------------------------------------------------------->
 
