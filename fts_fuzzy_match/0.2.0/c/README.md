@@ -2,10 +2,13 @@
 
 ## Folder Contents
 
+- [`NOTES.md`](./NOTES.md) - A short write-up on the differences in this
+  version to the original C++ version.
 - [`fts_fuzzy_match.c`](./fts_fuzzy_match.c) - Fuzzy Match 0.2.0 in C.
 - [`fts_fuzzy_match.h`](./fts_fuzzy_match.h) - Header file.
 - [`test.sh`](./test.sh) - Test launcher.
 - [`test.c`](./test.c) - Test code.
+- `tree-*.svg` - Images for the [`NOTES.md`](./NOTES.md) write-up.
 
 ## Test File
 
