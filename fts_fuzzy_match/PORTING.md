@@ -10,6 +10,11 @@ Some guidelines on how to create, test and add to the repository a new implement
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Porting](#porting)
+    - [Algorithm Versions](#algorithm-versions)
+    - [Original Reference Implementations](#original-reference-implementations)
+    - [Other Reference Implementations](#other-reference-implementations)
+        - [C Port of v0.2.0](#c-port-of-v020)
+    - [Code Guidelines](#code-guidelines)
 - [Testing](#testing)
 
 <!-- /MarkdownTOC -->
@@ -23,7 +28,11 @@ Depending on the target language you're porting the algorithm to, and the progra
 
 Before starting to work on your code, you're strongly advised to read the _[Reverse Engineering Sublime Text’s Fuzzy Match]_ article by [Forrest Smith], which inspired the __fts_fuzzy_match__ algorithm in the first place.
 
-There are two versions of the algorithm:
+Having read that, you are strongly advised to read the [optimization notes][2c notes] provided by [Philip Jones] along with his [C port of __v0.2.0__][2c] (more on his C port further down).
+
+## Algorithm Versions
+
+[Forrest Smith] has created two versions of the algorithm:
 
 - __v0.1.0__ — the original algorithm mentioned in the article.
 - __v0.2.0__ — an improved version, based on feedback on the article from Sublime Text author, Jon Skinner.
@@ -32,8 +41,38 @@ You should consider implementing __v0.1.0__ of the algorithm first, and then sta
 
 If you do so, please add to this repository both version __v0.1.0__ and __v0.2.0__ of your ported algorithm, for they will be helpful references to other porters.
 
+
+## Original Reference Implementations
+
+The original algorithm implementation by [Forrest Smith] can be found in the following folders:
+
+- [`/0.1.0/cpp/`][1cpp] — C++ algorithm __v0.1.0__
+- [`/0.1.0/js/`][1js] — JavaScript algorithm __v0.1.0__
+- [`/0.2.0/cpp/`][1cpp] — C++ algorithm __v0.2.0__
+
+If you need the JavaScript implementation of __v0.2.0__, there's the implementation by [@nrgwsth]:
+
+- [`/0.2.0/js/`][2js] — JavaScript algorithm __v0.2.0__
+
+
+## Other Reference Implementations
+
+Beside the original algorithm by [Forrest Smith], mentioned above, you might also want to study the source code of the following ports:
+
+### C Port of v0.2.0
+
+- [`/0.2.0/c/`][2c] — C algorithm __v0.2.0__ (slender)
+
+The C port of algorithm __v0.2.0__ by [Philip Jones] contains some nice optimizations that render the code shorter and less entangled than the original, therefore easier to understand and port to other languages — especially non OOP languages.
+
+Furthermore, the author kindly [documented his code enhancements][2c notes], explaining in detail how his changes improve upon the original and why his approach is simpler to understand and implement.
+
+
+## Code Guidelines
+
 While porting the algorithm, try to stay as close to the original implementation as possible, and resist temptations to add your own improvements.
 The goal of this project is to present ports of the original algorithms, _as they are_, to various other languages.
+That said, any adaptations of the original code in order to adhere to the target language idiomatic approach is desirable, including optimization which come natural due to syntax features specific to the target language.
 
 There's obviously room for a lot of improvements in the original __fts_fuzzy_match__ algorithm, but its beauty and success lie in its simplicity.
 It's an entry level algorithm and introduction to fuzzy searching and matching, and it's meant as a starting point to get your feet wet with fuzzy matching, without the complexity of more advanced algorithms.
@@ -91,12 +130,24 @@ If you're implementing an algorithm in a language for which there's already an i
 [expect1]: ./0.1.0/expected_results.txt "Test results from original algorithm v0.1.0"
 [expect2]: ./0.2.0/expected_results.txt "Test results from original algorithm v0.2.0"
 
+[1cpp]: ./0.1.0/cpp/ "Navigate to C++ algorithm v0.1.0"
+[1js]:  ./0.1.0/js/  "Navigate to JavaScript algorithm v0.1.0"
+[2cpp]: ./0.2.0/cpp/ "Navigate to C++ algorithm v0.2.0"
+[2js]:  ./0.2.0/js/  "Navigate to JavaScript algorithm v0.2.0"
+
+<!-- C v0.2.0 -->
+
+[2c]: ./0.2.0/c/ "Navigate to C algorithm v0.2.0"
+[2c notes]: ./0.2.0/c/NOTES.md "P.Jones' optimization notes"
+
 <!-- Issue -->
 
 [#16]: https://github.com/tajmone/fuzzy-search/issues/16 "Issue #16 — Create Tests Data from Original Algorithms"
 
 <!-- people -->
 
+[@nrgwsth]: https://github.com/nrgwsth "View @nrgwsth's GitHub profile"
 [Forrest Smith]: https://github.com/forrestthewoods "View Forrest Smith's GitHub profile"
+[Philip Jones]: https://github.com/philj56 "View Philip Jones's GitHub profile"
 
 <!-- EOF -->
