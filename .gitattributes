@@ -55,6 +55,12 @@ LICENSE      text
 *.pbp   linguist-language=XML linguist-generated=true
 
 
+## Zig Files
+############
+[attr]Zig text eol=lf
+*.zig   Zig
+
+
 ## Exceptions
 #############
 /dataset/*.txt         text eol=lf  linguist-vendored

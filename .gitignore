@@ -10,6 +10,15 @@
 *.pbp
 project.cfg
 
+## Zig Lang
+###########
+zig-cache/
+zig-out/
+release/
+debug/
+build/
+build-*/
+
 ## ===============
 ## Misc Work Files
 ## ===============

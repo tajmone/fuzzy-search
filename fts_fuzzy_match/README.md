@@ -34,6 +34,7 @@ The original __fts_fuzzy_match__ algorithms by [Forrest Smith], organized by ver
     + [`/php/`][1php] — PHP port by [@detectiveYarmas].
     + [`/purebasic/`][1pb] — PureBasic port by [Tristano Ajmone].
     + [`/python/`][1py] — Python port by [Matt Menzenski].
+    + [`/zig/`][1zig] — Zig port by [Tristano Ajmone].
     + [`expected_results.txt`][expect1] — Test data for validating v0.1.0 implementations.
 - [`/0.2.0/`](./0.2.0/) — improved "exhaustive search" version based on Jon Skinner feedback, 2017.
     + [`/c/`][2c] — C version by [Philip Jones], with code optimizations.
@@ -127,6 +128,7 @@ The following table lists all the implementations available in this repository, 
 | [PHP][1php]               | [0.1.0][fm1 php] | _n/a_              | [@detectiveYarmas]   | [GitHub][fm php]         | CC0 1.0       |
 | [PureBasic][1pb]          | [0.1.0][fm1 pb]  | :heavy_check_mark: | [Tristano Ajmone]    | n/a                      | CC0 1.0       |
 | [Python][1py]             | [0.1.0][fm1 py]  | _n/a_              | [Matt Menzenski]     | [Gist][fm py]            | MIT           |
+| [Zig][1zig]               | [0.1.0][fm1 zig] | :heavy_check_mark: | [Tristano Ajmone]    | n/a                      | CC0 1.0       |
 
 The __test__ column indicates whether a given implementation of the algorithm has been tested against the original C++ target :dart: implementation of the same version for identical behaviour.
 A :heavy_check_mark: indicates that the test succeeds, a :x: that it fails, and _n/a_ that currently there is no test code for that implementation (see [Issue #17]).
@@ -254,6 +256,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [1pb]:  ./0.1.0/purebasic/ "Navigate to PureBasic algorithm v0.1.0"
 [1php]: ./0.1.0/php/       "Navigate to PHP algorithm v0.1.0"
 [1py]:  ./0.1.0/python/    "Navigate to Python algorithm v0.1.0"
+[1zig]: ./0.1.0/zig/       "Navigate to Zig algorithm v0.1.0"
 [2c]:   ./0.2.0/c/         "Navigate to C algorithm v0.2.0"
 [2cpp]: ./0.2.0/cpp/       "Navigate to C++ algorithm v0.2.0"
 [2cs]:  ./0.2.0/csharp/    "Navigate to C# algorithm v0.2.0"
@@ -278,6 +281,7 @@ Here's a list of wrappers to [`fts_fuzzy_match.h`][fm1 cpp] in various languages
 [fm1 pb]:  ./0.1.0/purebasic/mod_FuzzyMatch.pbi "PureBasic implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 php]: ./0.1.0/php/fts_fuzzy_match.php      "PHP implementation of 'fts_fuzzy_match' v0.1.0"
 [fm1 py]:  ./0.1.0/python/fts_fuzzy_match.py    "Python implementation of 'fts_fuzzy_match' v0.1.0"
+[fm1 zig]: ./0.1.0/zig/fts_fuzzy_match.zig      "Zig implementation of 'fts_fuzzy_match' v0.1.0"
 [fm2 c]:   ./0.2.0/c/fts_fuzzy_match.c          "C implementation of 'fts_fuzzy_match' v0.2.0"
 [fm2 cpp]: ./0.2.0/cpp/fts_fuzzy_match.h        "C++ implementation of 'fts_fuzzy_match' v0.1.0"
 [fm2 cs]:  ./0.2.0/csharp/FuzzyMatch.cs         "C# implementation of 'fts_fuzzy_match' v0.2.0"
